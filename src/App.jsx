@@ -1,9 +1,10 @@
-function App() {
+import { Home } from './pages';  //points at ./pages/index.js by default
+
+export default function App() {
+
   return (
-    <div>
-      <h1>FI-Plannr</h1>
-    </div>
+    <>
+      <Home />
+    </>
   )
 }
-
-export default App
