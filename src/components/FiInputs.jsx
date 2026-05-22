@@ -1,13 +1,10 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { fiSchema } from '../features/fi-calculator/fiSchema';
 import { InputField } from './ui/InputField';
 
 export default function FiInputs() {
 
   return (
-    <form className="p-6 w-full flex flex-col gap-4">
+    <div className="p-6 w-full flex flex-col gap-4">
       <InputField
         id="startingAmount"
         label="Starting Amount"
@@ -51,6 +48,6 @@ export default function FiInputs() {
         placeholder="100"
         prefix="$"
       />
-    </form>
+    </div>
   )
 }
