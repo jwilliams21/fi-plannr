@@ -1,10 +1,10 @@
-import { FiInputs, FiDashboard } from '../components';
+import { FiCalculatorForm, FiDashboard } from '../components';
 
 export default function Home() {
 
   return (
     <>
-      <FiInputs />
+      <FiCalculatorForm />
       <FiDashboard />
     </>
   )

@@ -1,16 +1,16 @@
 
 
-export const Button = ({ children, onClick, variant, className, href }) => {
+export const Button = ({ children, onClick, variant, className, href, ...props }) => {
 
     const variants = {
-        base: 'bg-green-500 text-white p-2 rounded-lg'
+        base: 'bg-green-500 text-white p-2 rounded-lg border-1 bg-emerald-500'
     }
 
     if(href) {
         return (
             <a
             href={href}
-            className={className}
+            className={`${variants[variant]} ${className}`}
             >
                 {children}
             </a>
@@ -20,7 +20,8 @@ export const Button = ({ children, onClick, variant, className, href }) => {
     return (
         <button
             onClick={onClick}
-            className={className}
+            className={`${variants[variant]} ${className}`}
+            {...props}
         >
             {children}
         </button>
