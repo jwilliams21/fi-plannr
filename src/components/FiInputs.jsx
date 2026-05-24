@@ -51,7 +51,7 @@ export default function FiInputs({ register, errors }) {
         id="addContribute"
         name="addContribute"
         registration={register('addContribute')}
-        label="Additional Contributions"
+        label="Additional Contributions (Annual)"
         type="number"
         labelVariant="base"
         inputVariant="base"

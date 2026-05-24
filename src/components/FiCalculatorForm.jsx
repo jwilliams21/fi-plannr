@@ -7,8 +7,7 @@ import FiInputs from './FiInputs';
 import { Button } from './ui/Button'; 
 
 
-export default function FiCalculatorForm() {
-    const [calculationResults, setCalculationResults] = useState(null);
+export default function FiCalculatorForm({ onCalculated }) {
 
     const { handleSubmit, register, formState: { errors } } = useForm({
         resolver: zodResolver(fiSchema)
@@ -18,11 +17,12 @@ export default function FiCalculatorForm() {
 
     const onSubmit = (data) => {
         const results = fiMath(data);
-        setCalculationResults(results);
+        console.log('These are the consoles you are looking for...:', results)
+        onCalculated(results);
     }
 
     return (
-        <form className='flex flex-col gap-4 p-6 w-full' onSubmit={handleSubmit(onSubmit)}>
+        <form className='flex flex-col gap-4 p-6 w-full' onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
             <FiInputs register={register} errors={errors} />
             <Button
                 variant='base'
