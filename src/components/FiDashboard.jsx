@@ -33,19 +33,19 @@ export default function FiDashboard({ results }) {
         <tbody>
           <tr>
             <td>Starting Amount</td>
-            <td>{startingAmount}</td>
+            <td>{startingAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
             <td>Total Contributions</td>
-            <td>{totalContribution}</td>
+            <td>{totalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
             <td>Total Interest</td>
-            <td>{totalInterest}</td>
+            <td>{totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
             <td>End Balance</td>
-            <td>{totalEndingBalance}</td>
+            <td>{totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
         </tbody>
       </table>
@@ -69,10 +69,10 @@ export default function FiDashboard({ results }) {
             return (
               <tr key={row.year}>
                 <td>{row.year}</td>
-                <td>{row.yearStartingAmt}</td>
-                <td>{row.yearAddContribute}</td>
-                <td>{row.yearInterest}</td>
-                <td>{row.yearEndingBalance}</td>
+                <td>{row.yearStartingAmt.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td>{row.yearAddContribute.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td>{row.yearInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td>{row.yearEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
               </tr>
             )
           })}
