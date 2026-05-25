@@ -13,11 +13,8 @@ export default function FiCalculatorForm({ onCalculated }) {
         resolver: zodResolver(fiSchema)
     });
 
-    console.log(errors)
-
     const onSubmit = (data) => {
         const results = fiMath(data);
-        console.log('These are the consoles you are looking for...:', results)
         onCalculated(results);
     }
 

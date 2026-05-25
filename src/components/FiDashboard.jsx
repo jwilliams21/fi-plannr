@@ -1,4 +1,4 @@
-
+import { FiPieChart } from './FiPieChart';
 
 export default function FiDashboard({ results }) {
 
@@ -20,9 +20,12 @@ export default function FiDashboard({ results }) {
   const totalContribution = results.reduce((accumulator, currentYear) => {
     return accumulator + currentYear.yearAddContribute;
   }, 0)
+
+  console.log('From FiDashboard:', { totalEndingBalance, startingAmount, totalInterest, totalContribution })
   
   return (
     <div>
+
       {/* Top Line Results */}
       <table>
         <thead>
@@ -49,6 +52,16 @@ export default function FiDashboard({ results }) {
           </tr>
         </tbody>
       </table>
+
+      {/* Doughnut Chart */}
+      <div>
+        <h2>Growth Projections</h2>
+        <FiPieChart 
+          totalPrincipal={startingAmount}
+          totalContributions={totalContribution}
+          totalGrowth={totalInterest}
+        />
+      </div>
 
       {/* Accumulation Table */}
       <table>
