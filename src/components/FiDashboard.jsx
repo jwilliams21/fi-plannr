@@ -10,15 +10,15 @@ export default function FiDashboard({ results }) {
     )
   }
 
-  const totalEndingBalance = results[results.length-1].yearEndingBalance;
-  const startingAmount = results[0].yearStartingAmt;
+  const totalEndingBalance = parseFloat(results[results.length-1].yearEndingBalance) || 0;
+  const startingAmount = parseFloat(results[0].yearStartingAmt) || 0;
 
   const totalInterest = results.reduce((accumulator, currentYear) => {
-    return accumulator + currentYear.yearInterest;
+    return accumulator + (parseFloat(currentYear.yearInterest) || 0);
   }, 0)
 
   const totalContribution = results.reduce((accumulator, currentYear) => {
-    return accumulator + currentYear.yearAddContribute;
+    return accumulator + (parseFloat(currentYear.yearAddContribute) || 0);
   }, 0)
 
   console.log('From FiDashboard:', { totalEndingBalance, startingAmount, totalInterest, totalContribution })
@@ -57,9 +57,7 @@ export default function FiDashboard({ results }) {
       <div>
         <h2>Growth Projections</h2>
         <FiPieChart 
-          totalPrincipal={startingAmount}
-          totalContributions={totalContribution}
-          totalGrowth={totalInterest}
+          results={results}
         />
       </div>
 
