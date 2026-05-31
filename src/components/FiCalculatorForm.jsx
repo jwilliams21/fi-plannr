@@ -8,6 +8,9 @@ import { Button } from './ui/Button';
 
 
 export default function FiCalculatorForm({ onCalculated }) {
+    const [calcFrequency, setCalcFrequency] = useState('annual');
+    const [calcTiming, setCalcTiming] = useState('beginning')
+    
 
     const { handleSubmit, register, formState: { errors } } = useForm({
         resolver: zodResolver(fiSchema)
@@ -20,7 +23,14 @@ export default function FiCalculatorForm({ onCalculated }) {
 
     return (
         <form className='flex flex-col gap-4 p-6 w-full' onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
-            <FiInputs register={register} errors={errors} />
+            <FiInputs 
+                register={register} 
+                errors={errors} 
+                frequency={calcFrequency} 
+                onFrequencyChange={setCalcFrequency}
+                timing={calcTiming}
+                onTimingChange={setCalcTiming}
+            />
             <Button
                 variant='base'
                 type='submit'
