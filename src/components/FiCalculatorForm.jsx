@@ -8,8 +8,9 @@ import { Button } from './ui/Button';
 
 
 export default function FiCalculatorForm({ onCalculated }) {
-    const [calcFrequency, setCalcFrequency] = useState('annual');
-    const [calcTiming, setCalcTiming] = useState('beginning')
+    const [compoundFrequency, setCompoundFrequency] = useState('annual');
+    const [contributionTiming, setContributionTiming] = useState('beginning');
+    const [contributionFrequency, setContributionFrequency] = useState('monthly');
     
 
     const { handleSubmit, register, formState: { errors } } = useForm({
@@ -17,6 +18,10 @@ export default function FiCalculatorForm({ onCalculated }) {
     });
 
     const onSubmit = (data) => {
+        data.compoundFrequency = compoundFrequency;
+        data.contributionTiming = contributionTiming;
+        data.contributionFrequency = contributionFrequency;
+
         const results = fiMath(data);
         onCalculated(results);
     }
@@ -26,10 +31,12 @@ export default function FiCalculatorForm({ onCalculated }) {
             <FiInputs 
                 register={register} 
                 errors={errors} 
-                frequency={calcFrequency} 
-                onFrequencyChange={setCalcFrequency}
-                timing={calcTiming}
-                onTimingChange={setCalcTiming}
+                compoundFrequency={compoundFrequency} 
+                onCompoundFrequencyChange={setCompoundFrequency}
+                contributionTiming={contributionTiming}
+                onContributionTimingChange={setContributionTiming}
+                contributionFrequency={contributionFrequency}
+                onContributionFrequencyChange={setContributionFrequency}
             />
             <Button
                 variant='base'

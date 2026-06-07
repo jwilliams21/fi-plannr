@@ -4,7 +4,7 @@ export const Button = ({ children, onClick, variant, className, href, active, ..
 
     const variants = {
         base: 'bg-emerald-500 text-white p-2 rounded-lg border-1 bg-emerald-500',
-        toggle: active ? 'bg-emerald-500 text-white shadow-sm' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700/50'
+        toggle: active ? 'bg-emerald-500 text-white shadow-sm rounded-lg' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700/50 rounded-lg'
     }
 
     if(href) {

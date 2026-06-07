@@ -3,11 +3,11 @@
 export const InputField = ({ id, name, label, type, error, labelVariant, labelClassName, inputVariant, inputClassName, divClassName, prefix, registration, ...props }) => {
 
     const labelVariants = {
-        base: "w-full text-xl"
+        base: 'w-full text-xl'
     }
 
     const inputVariants = {
-        base: "border-2 border-slate-300 rounded-lg w-full mt-2 p-2 text-lg text-slate-700"
+        base: 'border-2 border-slate-300 rounded-lg w-full mt-2 p-2 text-lg text-slate-700'
     }
 
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { InputField } from './ui/InputField';
 import { Button } from './ui/Button';
 
-export default function FiInputs({ register, errors, frequency, onFrequencyChange, timing, onTimingChange }) {
+export default function FiInputs({ register, errors, compoundFrequency, onCompoundFrequencyChange, contributionTiming, onContributionTimingChange, contributionFrequency, onContributionFrequencyChange }) {
 
   return (
     <div className="p-6 w-full flex flex-col gap-4">
@@ -38,7 +38,7 @@ export default function FiInputs({ register, errors, frequency, onFrequencyChang
         id="returnRate"
         name="returnRate"
         registration={register('returnRate')}
-        label="Return Rate"
+        label="Period Rate"
         type="number"
         labelVariant="base"
         inputVariant="base"
@@ -47,6 +47,14 @@ export default function FiInputs({ register, errors, frequency, onFrequencyChang
         prefix="%"
         error={errors.returnRate?.message}
       />
+
+      <div>
+        <label className='w-full text-xl'>Compound</label>
+        <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
+          <Button variant='toggle' active={compoundFrequency === 'annual' ? true : false}  onClick={() => {onCompoundFrequencyChange('annual')}}>Annually</Button>
+          <Button variant='toggle' active={compoundFrequency === 'monthly' ? true : false} onClick={() => {onCompoundFrequencyChange('monthly')}}>Monthly</Button>
+        </div>
+      </div>
 
       <InputField
         id="addContribute"
@@ -62,14 +70,18 @@ export default function FiInputs({ register, errors, frequency, onFrequencyChang
         error={errors.addContribute?.message}
       />
 
-      <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
-        <Button variant='toggle' className='rounded-lg' active={frequency === 'annual' ? true : false}  onClick={() => {onFrequencyChange('annual')}}>Annual</Button>
-        <Button variant='toggle' className='rounded-lg' active={frequency === 'monthly' ? true : false} onClick={() => {onFrequencyChange('monthly')}}>Monthly</Button>
-      </div>
+      <div>
+        <label className='w-full text-xl'>Contribute at the </label>
+        <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
+          <Button variant='toggle' active={contributionTiming === 'beginning' ? true  : false} onClick={() => {onContributionTimingChange('beginning')}}>Beginning</Button>
+          <Button variant='toggle' active={contributionTiming === 'end' ? true  : false} onClick={() => {onContributionTimingChange('end')}}>End</Button>
+        </div>
 
-      <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
-        <Button variant='toggle' className='rounded-lg' active={timing === 'beginning' ? true  : false} onClick={() => {onTimingChange('beginning')}}>Beginning</Button>
-        <Button variant='toggle' className='rounded-lg' active={timing === 'end' ? true  : false} onClick={() => {onTimingChange('end')}}>End</Button>
+        <label className='w-full text-xl'>of each</label>
+        <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
+          <Button variant='toggle' active={contributionFrequency === 'monthly' ? true : false} onClick={() => {onContributionFrequencyChange('monthly')}}>Month</Button>
+          <Button variant='toggle' active={contributionFrequency === 'yearly' ? true : false} onClick={() => {onContributionFrequencyChange('yearly')}}>Year</Button>
+        </div>
       </div>
     </div>
   )
