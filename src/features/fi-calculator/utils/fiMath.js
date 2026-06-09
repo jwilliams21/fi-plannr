@@ -1,3 +1,4 @@
+import { computedTypesResolver } from "@hookform/resolvers/computed-types";
 
 
 export const fiMath = ({ startingAmt, duration, returnRate, addContribute, compoundFrequency, contributionTiming, contributionFrequency }) => {
@@ -14,26 +15,25 @@ export const fiMath = ({ startingAmt, duration, returnRate, addContribute, compo
     let annualContributionTracker = 0;
 
 
+    let monthlyRate = 0;
+    if(compoundFrequency === 'annual') {
+        monthlyRate = Math.pow(1 + rate, 1 / 12) - 1;
+    } else if (compoundFrequency === 'monthly') {
+        monthlyRate = rate;
+    }
+
 
     for(let currentMonth = 1; currentMonth <= numMonths; currentMonth++){
         const currentYear = currentMonth / 12;
-
-
 
         if(contributionTiming === 'beginning' && contributionFrequency === 'monthly') {
             currentBalance += contributionAmt;
             annualContributionTracker += contributionAmt;
         } 
 
-        if (compoundFrequency === 'monthly') {
-            const monthInterest = currentBalance * rate;
-            annualInterestTracker += monthInterest;
-            currentBalance += monthInterest
-        } else if (compoundFrequency === 'annual' && currentMonth % 12 === 0) {
-            const yearInterest = currentBalance * rate;
-            annualInterestTracker += yearInterest;
-            currentBalance += yearInterest;
-        }
+        const monthInterest = currentBalance * monthlyRate;
+        annualInterestTracker += monthInterest;
+        currentBalance += monthInterest;
 
         if(contributionTiming === 'end' && contributionFrequency === 'monthly') {
             currentBalance += contributionAmt;
