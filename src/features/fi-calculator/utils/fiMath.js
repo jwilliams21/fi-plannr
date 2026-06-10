@@ -26,19 +26,27 @@ export const fiMath = ({ startingAmt, duration, returnRate, addContribute, compo
     for(let currentMonth = 1; currentMonth <= numMonths; currentMonth++){
         const currentYear = currentMonth / 12;
 
-        if(contributionTiming === 'beginning' && contributionFrequency === 'monthly') {
-            currentBalance += contributionAmt;
-            annualContributionTracker += contributionAmt;
-        } 
+        const isFirstMonthOfYear = (currentMonth - 1) % 12 === 0;
+        const isLastMonthOfYear = currentMonth % 12 === 0;
+
+        if(contributionTiming === 'beginning') {
+            if(contributionFrequency === 'monthly' || (contributionFrequency === 'yearly' && isFirstMonthOfYear)) {
+                currentBalance += contributionAmt;
+                annualContributionTracker += contributionAmt;
+            }
+        }
 
         const monthInterest = currentBalance * monthlyRate;
         annualInterestTracker += monthInterest;
         currentBalance += monthInterest;
 
-        if(contributionTiming === 'end' && contributionFrequency === 'monthly') {
-            currentBalance += contributionAmt;
-            annualContributionTracker += contributionAmt;
+        if(contributionTiming === 'end') {
+            if(contributionFrequency === 'monthly' || (contributionFrequency === 'yearly' && isLastMonthOfYear)){
+                currentBalance += contributionAmt;
+                annualContributionTracker += contributionAmt;
+            }
         }
+
 
         if(currentMonth % 12 === 0) {
             let lastYearBalance = investLedger.length > 0 ? investLedger[investLedger.length - 1].yearEndingBalance : startingAmt;    

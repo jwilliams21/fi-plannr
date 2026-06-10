@@ -3,14 +3,14 @@ import BasicCalculatorForm from "../components/BasicCalculatorForm";
 import BasicDashboard from "../components/BasicDashboard";
 
 export default function BasicCalculator() {
-    const [calculationResults, setCalculationResults] = useState(null);
+    const [basicResults, setBasicResults] = useState(null);
 
     return (
         <div>
             <h2>Basic Investment Calculator</h2>
             <div>
-                <BasicCalculatorForm onCalculated={setCalculationResults} />
-                <BasicDashboard results={calculationResults} />
+                <BasicCalculatorForm onCalculated={setBasicResults} />
+                <BasicDashboard results={basicResults} />
             </div>
         </div>
     )
