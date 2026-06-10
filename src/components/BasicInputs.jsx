@@ -2,7 +2,7 @@ import React from 'react';
 import { InputField } from './ui/InputField';
 import { Button } from './ui/Button';
 
-export default function FiInputs({ register, errors, compoundFrequency, onCompoundFrequencyChange, contributionTiming, onContributionTimingChange, contributionFrequency, onContributionFrequencyChange }) {
+export default function BasicInputs({ register, errors, compoundFrequency, onCompoundFrequencyChange, contributionTiming, onContributionTimingChange, contributionFrequency, onContributionFrequencyChange }) {
 
   return (
     <div className="p-6 w-full flex flex-col gap-4">

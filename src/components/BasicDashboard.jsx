@@ -1,6 +1,6 @@
 import { FiPieChart } from './FiPieChart';
 
-export default function FiDashboard({ results }) {
+export default function BasicDashboard({ results }) {
 
   if(!results) {
     return (

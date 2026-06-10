@@ -3,11 +3,11 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { fiSchema } from '../features/fi-calculator/fiSchema';
 import { fiMath } from '../features/fi-calculator/utils/fiMath';
-import FiInputs from './FiInputs';
+import BasicInputs from './BasicInputs';
 import { Button } from './ui/Button'; 
 
 
-export default function FiCalculatorForm({ onCalculated }) {
+export default function BasicCalculatorForm({ onCalculated }) {
     const [compoundFrequency, setCompoundFrequency] = useState('annual');
     const [contributionTiming, setContributionTiming] = useState('beginning');
     const [contributionFrequency, setContributionFrequency] = useState('monthly');
@@ -28,7 +28,7 @@ export default function FiCalculatorForm({ onCalculated }) {
 
     return (
         <form className='flex flex-col gap-4 p-6 w-full' onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
-            <FiInputs 
+            <BasicInputs 
                 register={register} 
                 errors={errors} 
                 compoundFrequency={compoundFrequency} 
