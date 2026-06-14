@@ -1,6 +1,6 @@
+import LabelInfo from '../LabelInfo';
 
-
-export const InputField = ({ id, name, label, type, error, labelVariant, labelClassName, inputVariant, inputClassName, divClassName, prefix, registration, ...props }) => {
+export const InputField = ({ id, name, label, type, error, labelVariant, labelClassName, inputVariant, inputClassName, divClassName, registration, description, ...props }) => {
 
     const labelVariants = {
         base: 'w-full text-xl'
@@ -13,7 +13,13 @@ export const InputField = ({ id, name, label, type, error, labelVariant, labelCl
     return (
         <div className={divClassName}>
 
-            <label htmlFor={id} className={`${labelVariants[labelVariant]} ${labelClassName}`}>{label} {prefix && `(${prefix})`}</label>
+            <div className='flex'>
+                <label htmlFor={id} className={`${labelVariants[labelVariant]} ${labelClassName}`}>{label}</label>
+                <LabelInfo
+                    label={label}
+                    description={description}
+                />
+            </div>
 
             <input className={`${inputVariants[inputVariant]} ${inputClassName}`}
                 id={id}
