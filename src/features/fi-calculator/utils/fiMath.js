@@ -16,7 +16,7 @@ export const fiMath = ({ startingAmt, duration, returnRate, addContribute, compo
 
 
     let monthlyRate = 0;
-    if(compoundFrequency === 'annual') {
+    if(compoundFrequency === 'annual' || compoundFrequency === '') {
         monthlyRate = Math.pow(1 + rate, 1 / 12) - 1;
     } else if (compoundFrequency === 'monthly') {
         monthlyRate = rate;

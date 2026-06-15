@@ -17,6 +17,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         placeholder='$ 10,000'
         prefix='$'
         error={errors.startingAmt?.message}
+        description='How much do you already have?'
       />
 
       <InputField
@@ -31,6 +32,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         placeholder='30'
         prefix='#'
         error={errors.duration?.message}
+        description='How many years do you plan to invest this money?'
       />
 
       <InputField
@@ -45,15 +47,16 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         placeholder='10 %'
         prefix='%'
         error={errors.returnRate?.message}
+        description='What return rate are you expecting?  In other words, provide a growth percentage.  Typical annual rates vary between 6% - 12%.'
       />
 
-      <div>
+      {/* <div>
         <label className='w-full text-xl'>Compound</label>
         <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
           <Button variant='toggle' active={compoundFrequency === 'annual' ? true : false}  onClick={() => {onCompoundFrequencyChange('annual')}}>Annually</Button>
           <Button variant='toggle' active={compoundFrequency === 'monthly' ? true : false} onClick={() => {onCompoundFrequencyChange('monthly')}}>Monthly</Button>
         </div>
-      </div>
+      </div> */}
 
       <InputField
         id='addContribute'
