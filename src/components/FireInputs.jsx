@@ -15,7 +15,7 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='25'
                 error={errors.currentAge?.message}
-                description='test description for Current Age input'
+                description='What is the age of the oldest member of your household?'
             />
 
             <InputField 
@@ -29,6 +29,7 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='50'
                 error={errors.fireAge?.message}
+                description='What age does the oldest member of your household want to become financially free (no longer having to work to afford expenses and lifestyle)?'
             />
 
             <InputField 
@@ -42,19 +43,21 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='$ 60,000'
                 error={errors.currentAnnualExpenses?.message}
+                description='Add up everything you spend money on throughout the year (e.g., mortgage, car payments, take-out, lightsaber-dueling lessons, etc.).'
             />
 
             <InputField 
                 id='totalBrokerage'
                 name='totalBrokerage'
                 registration={register('totalBrokerage')}
-                label='Total Brokerage Amount'
+                label='Total Brokerage Balance'
                 type='number'
                 labelVariant='base'
                 inputVariant='base'
                 divClassName='flex flex-col'
                 placeholder='$ 50,000'
                 error={errors.totalBrokerage?.message}
+                description='This is invested money outside of your retirement accounts.'
             />
 
             <InputField 
@@ -68,6 +71,7 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='$ 200'
                 error={errors.brokerageContribution?.message}
+                description='How much do you put in all total brokerage accounts each month?'
             />
 
             <InputField 
@@ -81,19 +85,21 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='10 %'
                 error={errors.brokerageReturnRate?.message}
+                description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
             />
 
             <InputField 
                 id='totalRoth'
                 name='totalRoth'
                 registration={register('totalRoth')}
-                label='Total Roth Amount'
+                label='Total Roth Balance'
                 type='number'
                 labelVariant='base'
                 inputVariant='base'
                 divClassName='flex flex-col'
                 placeholder='$ 20,000'
                 error={errors.totalRoth?.message}
+                description='The total value of all after-tax Roth accounts.'
             />
 
             <InputField 
@@ -107,6 +113,7 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='$ 625'
                 error={errors.rothContribution?.message}
+                description='How much do you put in all Roth accounts each month?'
             />
 
             <InputField 
@@ -120,19 +127,21 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='10 %'
                 error={errors.rothReturnRate?.message}
+                description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
             />
 
             <InputField 
                 id='totalTraditionalAmount'
                 name='totalTraditionalAmount'
                 registration={register('totalTraditionalAmount')}
-                label='Total Traditional Amount'
+                label='Total Traditional Balance'
                 type='number'
                 labelVariant='base'
                 inputVariant='base'
                 divClassName='flex flex-col'
                 placeholder='$ 50,000'
                 error={errors.totalTraditionalAmount?.message}
+                description='This is total tradtional dollars (including Safe Harbor contributions) in all retirement accounts.'
             />
 
             <InputField 
@@ -146,6 +155,7 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='$ 500'
                 error={errors.tradtionalContribution?.message}
+                description='How much do you put in all traditional accounts each month?'
             />
 
             <InputField 
@@ -159,6 +169,7 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='$ 300'
                 error={errors.traditionalEmployerContribution?.message}
+                description='How much does your employer contribute to all traditional accounts each month?'
             />
 
             <InputField 
@@ -170,21 +181,23 @@ export default function FireInputs({register, errors}) {
                 labelVariant='base'
                 inputVariant='base'
                 divClassName='flex flex-col'
-                placeholder='8 %'
+                placeholder='10 %'
                 error={errors.tradtionalReturnRate?.message}
+                description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
             />
 
             <InputField 
                 id='totalHsaAmount'
                 name='totalHsaAmount'
                 registration={register('totalHsaAmount')}
-                label='Total HSA Amount'
+                label='Total HSA Balance'
                 type='number'
                 labelVariant='base'
                 inputVariant='base'
                 divClassName='flex flex-col'
                 placeholder='$ 5,000'
                 error={errors.totalHsaAmount?.message}
+                description='How much do you put in all HSA accounts each month?'
             />
 
 
@@ -199,6 +212,7 @@ export default function FireInputs({register, errors}) {
                 divClassName='flex flex-col'
                 placeholder='$ 200'
                 error={errors.hsaContributions?.message}
+                description='How much do you put in all HSA accounts each month?'
             />
 
             <InputField 
@@ -210,8 +224,9 @@ export default function FireInputs({register, errors}) {
                 labelVariant='base'
                 inputVariant='base'
                 divClassName='flex flex-col'
-                placeholder='8 %'
+                placeholder='10 %'
                 error={errors.hsaReturnRate?.message}
+                description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
             />
 
         </div>

@@ -9,7 +9,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         id='startingAmt'
         name='startingAmt'
         registration={register('startingAmt')}
-        label='Starting Amount'
+        label='Starting Balance'
         type='number'
         labelVariant='base'
         inputVariant='base'
@@ -47,7 +47,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         placeholder='10 %'
         prefix='%'
         error={errors.returnRate?.message}
-        description='What return rate are you expecting?  In other words, provide a growth percentage.  Typical annual rates vary between 6% - 12%.'
+        description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
       />
 
       {/* <div>
@@ -70,6 +70,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         placeholder='$ 100'
         prefix='$'
         error={errors.addContribute?.message}
+        description='How much are you adding to your starting amount and when do you make that contribution?'
       />
 
       <div>
