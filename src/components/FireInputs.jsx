@@ -131,16 +131,16 @@ export default function FireInputs({register, errors}) {
             />
 
             <InputField 
-                id='totalTraditionalAmount'
-                name='totalTraditionalAmount'
-                registration={register('totalTraditionalAmount')}
+                id='totalTraditional'
+                name='totalTraditional'
+                registration={register('totalTraditional')}
                 label='Total Traditional Balance'
                 type='number'
                 labelVariant='base'
                 inputVariant='base'
                 divClassName='flex flex-col'
                 placeholder='$ 50,000'
-                error={errors.totalTraditionalAmount?.message}
+                error={errors.totalTraditional?.message}
                 description='This is total tradtional dollars (including Safe Harbor contributions) in all retirement accounts.'
             />
 
@@ -187,16 +187,16 @@ export default function FireInputs({register, errors}) {
             />
 
             <InputField 
-                id='totalHsaAmount'
-                name='totalHsaAmount'
-                registration={register('totalHsaAmount')}
+                id='totalHsa'
+                name='totalHsa'
+                registration={register('totalHsa')}
                 label='Total HSA Balance'
                 type='number'
                 labelVariant='base'
                 inputVariant='base'
                 divClassName='flex flex-col'
                 placeholder='$ 5,000'
-                error={errors.totalHsaAmount?.message}
+                error={errors.totalHsa?.message}
                 description='How much do you put in all HSA accounts each month?'
             />
 
