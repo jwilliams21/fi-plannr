@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { fiSchema } from '../features/fi-calculator/fiSchema';
-import { fiMath } from '../features/fi-calculator/utils/fiMath';
+import { fireSchema } from '../features/fi-calculator/fireSchema';
+import { basicMath } from '../features/fi-calculator/utils/basicMath';
 import FireInputs from './FireInputs';
 import { Button } from './ui/Button';
 
-export default function FireCalculatorForm() {
+export default function FireCalculatorForm({ onCalculated }) {
 
     const { handleSubmit, register, formState: { errors } } = useForm({
-        resolver: zodResolver(fiSchema)
+        resolver: zodResolver(fireSchema)
     });
 
     const onSubmit = (data) => {
-        const results = fiMath(data);
+        const results = basicMath(data);
         onCalculated(results);
     }
 

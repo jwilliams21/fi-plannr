@@ -1,7 +1,5 @@
-import { computedTypesResolver } from "@hookform/resolvers/computed-types";
 
-
-export const fiMath = ({ startingAmt, duration, returnRate, addContribute, compoundFrequency, contributionTiming, contributionFrequency }) => {
+export const basicMath = ({ startingAmt, duration, returnRate, addContribute, compoundFrequency, contributionTiming, contributionFrequency }) => {
     //loop through the data and return an array of objects - each object representing each year of the duration timeline
     const investLedger = [];
 

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { fiSchema } from '../features/fi-calculator/fiSchema';
-import { fiMath } from '../features/fi-calculator/utils/fiMath';
+import { basicSchema } from '../features/fi-calculator/basicSchema';
+import { basicMath } from '../features/fi-calculator/utils/basicMath';
 import BasicInputs from './BasicInputs';
 import { Button } from './ui/Button'; 
 
@@ -14,7 +14,7 @@ export default function BasicCalculatorForm({ onCalculated }) {
     
 
     const { handleSubmit, register, formState: { errors } } = useForm({
-        resolver: zodResolver(fiSchema)
+        resolver: zodResolver(basicSchema)
     });
 
     const onSubmit = (data) => {
@@ -22,7 +22,7 @@ export default function BasicCalculatorForm({ onCalculated }) {
         data.contributionTiming = contributionTiming;
         data.contributionFrequency = contributionFrequency;
 
-        const results = fiMath(data);
+        const results = basicMath(data);
         onCalculated(results);
     }
 
