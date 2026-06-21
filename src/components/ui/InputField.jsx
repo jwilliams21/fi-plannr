@@ -1,6 +1,19 @@
 import LabelInfo from '../LabelInfo';
 
-export const InputField = ({ id, name, label, type, error, labelVariant, labelClassName, inputVariant, inputClassName, divClassName, registration, description, ...props }) => {
+export const InputField = ({ 
+    id, 
+    name, 
+    label, 
+    type, 
+    error, 
+    labelVariant, 
+    labelClassName, 
+    inputVariant, 
+    inputClassName, 
+    divClassName, 
+    registration, 
+    description, 
+    ...props }) => {
 
     const labelVariants = {
         base: 'w-full text-xl'

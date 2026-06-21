@@ -16,33 +16,34 @@ export const fireMath = ({
     totalHsa, 
     hsaContributions, 
     hsaReturnRate }) => {
-
-        console.log('made it fireMath.js')
     
     const fireLedger = [];
 
     const numAge = Number(currentAge) || 0;
     const numFireAge = Number(fireAge) || 0;
     const numCurrentAnnualExpenses = Number(currentAnnualExpenses) || 1;
-    const numTotalBrokerage = Number(totalBrokerage) || 0;
     const numAnnualBrokerageContribution = Number(brokerageContribution) * 12 || 0;
     const numBrokerageReturnRate = Number(brokerageReturnRate) / 100 || 0.01;
-    const numTotalRoth = Number(totalRoth) || 0;
     const numAnnualRothContribution = Number(rothContribution) * 12 || 0;
     const numRothReturnRate = Number(rothReturnRate) / 100 || 0.01;
-    const numTotalTraditional = Number(totalTraditional) || 0;
     const numAnnualTraditionalContribution = Number(tradtionalContribution) *12 || 0;
     const numAnnualTraditionalEmployerContribution = Number(traditionalEmployerContribution) * 12 || 0;
     const numTraditionalReturnRate = Number(tradtionalReturnRate) / 100 || 0.01;
-    const numTotalHsa = Number(totalHsa) || 0;
     const numAnnualHsaContributions = Number(hsaContributions) * 12 || 0;
     const numHsaReturnRate = Number(hsaReturnRate) / 100 || 0.01;
+
+    let numTotalBrokerage = Number(totalBrokerage) || 0;
+    let numTotalRoth = Number(totalRoth) || 0;
+    let numTotalTraditional = Number(totalTraditional) || 0;
+    let numTotalHsa = Number(totalHsa) || 0;
     let brokerageInterestTracker = 0;
     let brokerageContributionTracker = 0;
     let rothInterestTracker = 0;
     let rothContributionTracker = 0;
-    let traditionInterestTracker = 0;
+    let traditionalInterestTracker = 0;
     let traditionalContributionTracker = 0;
+    let traditionalTotalContributionTracker = 0;
+    let traditionalEmployerContributionTracker = 0;
     let hsaInterestTracker = 0;
     let hsaContributionTracker = 0;
 
@@ -50,10 +51,15 @@ export const fireMath = ({
 
         // Brokerage math
         const annualBrokerageInterest = (numTotalBrokerage * (1 + numBrokerageReturnRate)) - numTotalBrokerage;
+        console.log('annual brokerage interest: ', annualBrokerageInterest)
         numTotalBrokerage += annualBrokerageInterest;
+        console.log('total brokerage after interest: ', numTotalBrokerage)
         numTotalBrokerage += numAnnualBrokerageContribution;
+        console.log('total brokerage after contribution: ', numTotalBrokerage)
         brokerageInterestTracker += annualBrokerageInterest;
+        console.log('brokerage interest tracker: ', brokerageInterestTracker)
         brokerageContributionTracker += numAnnualBrokerageContribution;
+        console.log('brokerage contribution tracker: ', brokerageContributionTracker)
 
         // Roth math
         const annualRothInterest = (numTotalRoth * (1 + numRothReturnRate)) - numTotalRoth;
@@ -69,7 +75,8 @@ export const fireMath = ({
         numTotalTraditional += numAnnualTraditionalEmployerContribution;
         traditionalInterestTracker += annualTraditionalInterest;
         traditionalContributionTracker += numAnnualTraditionalContribution;
-        traditionalContributionTracker += numAnnualTraditionalEmployerContribution;
+        traditionalEmployerContributionTracker += numAnnualTraditionalEmployerContribution;
+        traditionalTotalContributionTracker = traditionalContributionTracker + traditionalEmployerContributionTracker;
 
         // HSA math
         const annualHsaInterest = (numTotalHsa * (1 + numHsaReturnRate)) - numTotalHsa;
@@ -79,23 +86,34 @@ export const fireMath = ({
         hsaContributionTracker += numAnnualHsaContributions;
 
 
+        fireLedger.push({
+            age: age,
+            annualExpenses: numCurrentAnnualExpenses,
+            brokerageEndingBalance: numTotalBrokerage,
+            brokerageContribution: brokerageContributionTracker,
+            brokerageInterest: brokerageInterestTracker,
+            rothEndingBalance: numTotalRoth,
+            rothContribution: rothContributionTracker,
+            rothInterest: rothInterestTracker,
+            traditionalEndingBalance: numTotalTraditional,
+            traditionalContribution: traditionalTotalContributionTracker,
+            traditionalInterest: traditionalInterestTracker,
+            hsaEndingBalance: numTotalHsa,
+            hsaContribution: hsaContributionTracker,
+            hsaInterest: hsaInterestTracker
+        })
 
 
+        brokerageInterestTracker = 0;
+        brokerageContributionTracker = 0;
+        rothInterestTracker = 0;
+        rothContributionTracker = 0;
+        traditionalInterestTracker = 0;
+        traditionalContributionTracker = 0;
+        traditionalTotalContributionTracker = 0;
+        hsaInterestTracker = 0;
+        hsaContributionTracker = 0;
+    };
 
-        // let lastYearBalance = investLedger.length > 0 ? investLedger[investLedger.length - 1].yearEndingBalance : startingAmt;    
-
-        //     investLedger.push({
-        //         year: currentYear,
-        //         yearStartingAmt: lastYearBalance,
-        //         yearAddContribute: annualContributionTracker,
-        //         yearInterest: annualInterestTracker,
-        //         yearEndingBalance: currentBalance
-        //     })
-
-        //     annualInterestTracker = 0;
-        //     annualContributionTracker = 0;
-
-    }
-
-
+    return fireLedger;
 }
