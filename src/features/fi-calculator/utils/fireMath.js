@@ -51,15 +51,10 @@ export const fireMath = ({
 
         // Brokerage math
         const annualBrokerageInterest = (numTotalBrokerage * (1 + numBrokerageReturnRate)) - numTotalBrokerage;
-        console.log('annual brokerage interest: ', annualBrokerageInterest)
         numTotalBrokerage += annualBrokerageInterest;
-        console.log('total brokerage after interest: ', numTotalBrokerage)
         numTotalBrokerage += numAnnualBrokerageContribution;
-        console.log('total brokerage after contribution: ', numTotalBrokerage)
         brokerageInterestTracker += annualBrokerageInterest;
-        console.log('brokerage interest tracker: ', brokerageInterestTracker)
         brokerageContributionTracker += numAnnualBrokerageContribution;
-        console.log('brokerage contribution tracker: ', brokerageContributionTracker)
 
         // Roth math
         const annualRothInterest = (numTotalRoth * (1 + numRothReturnRate)) - numTotalRoth;
