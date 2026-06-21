@@ -21,7 +21,7 @@ export default function FireInputs({register, errors}) {
     }
 
     function toggleHsa() {
-        setBrokeragesetHsaOpenOpen(!hsaOpen);
+        setHsaOpen(!hsaOpen);
     }
 
     return (

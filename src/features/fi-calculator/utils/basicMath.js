@@ -3,7 +3,6 @@ export const basicMath = ({ startingAmt, duration, returnRate, addContribute, co
     //loop through the data and return an array of objects - each object representing each year of the duration timeline
     const investLedger = [];
 
-    const startingAmount = Number(startingAmt) || 0;
     const years = Number(duration) || 0;
     const numMonths = Number(duration * 12) || 0;
     const rate = Number((returnRate / 100)) || 0;

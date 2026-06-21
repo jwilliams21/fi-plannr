@@ -5,6 +5,8 @@ import BasicDashboard from "../components/BasicDashboard";
 export default function BasicCalculator() {
     const [basicResults, setBasicResults] = useState(null);
 
+    console.log(basicResults)
+
     return (
         <div>
             <h2>Basic Investment Calculator</h2>
