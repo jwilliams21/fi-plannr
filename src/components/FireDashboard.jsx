@@ -27,7 +27,7 @@ export default function FireDashboard({ results }) {
     const totalRothContribution = results.reduce((accumulator, currentAge) => {
         return accumulator + (parseFloat(currentAge.rothContribution)) || 0;
     }, 0)
-    const totalRothRemoveContribution = totalRothEndingBalance - totalRothContribution;
+    const totalRothRemoveContribution = (totalRothEndingBalance - totalRothContribution) - totalRoth;
 
     // Traditional
     const totalTraditionalEndingBalance = parseFloat(results[results.length - 1].traditionalEndingBalance) || 0;
