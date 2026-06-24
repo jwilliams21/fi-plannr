@@ -27,7 +27,8 @@ export default function FireDashboard({ results }) {
     const totalRothContribution = results.reduce((accumulator, currentAge) => {
         return accumulator + (parseFloat(currentAge.rothContribution)) || 0;
     }, 0)
-    const totalRothRemoveContribution = (totalRothEndingBalance - totalRothContribution) - totalRoth;
+    const totalRothRemoveContribution = (totalRothEndingBalance - totalRothContribution) - results[results.length - 1].startingRoth;
+
 
     // Traditional
     const totalTraditionalEndingBalance = parseFloat(results[results.length - 1].traditionalEndingBalance) || 0;
@@ -37,6 +38,10 @@ export default function FireDashboard({ results }) {
     const totalTraditionalContribution = results.reduce((accumulator, currentAge) => {
         return accumulator + (parseFloat(currentAge.traditionalContribution)) || 0;
     }, 0)
+    const totalTraditionalEmployerContribution = results.reduce((accumulator, currentAge) => {
+        return accumulator + (parseFloat(currentAge.traditionalEmployerContribution)) || 0;
+    }, 0)
+
 
     // HSA
     const totalHsaEndingBalance = parseFloat(results[results.length - 1].hsaEndingBalance) || 0;
@@ -67,7 +72,7 @@ export default function FireDashboard({ results }) {
                             <td>{totalFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
                         <tr>
-                            <td>Money After 59 1/2 (Roth Interest & Traditional & HSA)</td>
+                            <td>Money After 59 1/2 (Roth Starting Amount & Roth Interest & Traditional & HSA)</td>
                             <td>{totalAfterFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
                     </tbody>
@@ -136,8 +141,12 @@ export default function FireDashboard({ results }) {
                             <td>{totalTraditionalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
                         <tr>
-                            <td>Total Traditional Contributions</td>
+                            <td>Total Traditional Contribution</td>
                             <td>{totalTraditionalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                        <tr>
+                            <td>Total Traditional Employer Contribution</td>
+                            <td>{totalTraditionalEmployerContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
                     </tbody>
                 </table>

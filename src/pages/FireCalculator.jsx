@@ -5,8 +5,6 @@ import FireDashboard from '../components/FireDashboard';
 export default function FireCalculator() {
     const [fireResults, setFireResults] = useState(null);
 
-    console.log(fireResults);
-
     return (
         <div>
             <h2>FIRE Investment Calculator</h2>

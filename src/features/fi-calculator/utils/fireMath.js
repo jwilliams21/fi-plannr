@@ -31,6 +31,10 @@ export const fireMath = ({
     const numTraditionalReturnRate = Number(tradtionalReturnRate) / 100 || 0.01;
     const numAnnualHsaContributions = Number(hsaContributions) * 12 || 0;
     const numHsaReturnRate = Number(hsaReturnRate) / 100 || 0.01;
+    const numStartingBrokerage = Number(totalBrokerage) || 0;
+    const numStartingRoth = Number(totalRoth) || 0;
+    const numStartingTraditional = Number(totalTraditional) || 0;
+    const numStartingHsa = Number(totalHsa) || 0;
 
     let numTotalBrokerage = Number(totalBrokerage) || 0;
     let numTotalRoth = Number(totalRoth) || 0;
@@ -42,10 +46,11 @@ export const fireMath = ({
     let rothContributionTracker = 0;
     let traditionalInterestTracker = 0;
     let traditionalContributionTracker = 0;
-    let traditionalTotalContributionTracker = 0;
     let traditionalEmployerContributionTracker = 0;
     let hsaInterestTracker = 0;
     let hsaContributionTracker = 0;
+
+    console.log(numTotalBrokerage, numTotalRoth, numTotalTraditional, numTotalHsa)
 
     for(let age = numAge; age <= numFireAge; age++) {
 
@@ -71,7 +76,6 @@ export const fireMath = ({
         traditionalInterestTracker += annualTraditionalInterest;
         traditionalContributionTracker += numAnnualTraditionalContribution;
         traditionalEmployerContributionTracker += numAnnualTraditionalEmployerContribution;
-        traditionalTotalContributionTracker = traditionalContributionTracker + traditionalEmployerContributionTracker;
 
         // HSA math
         const annualHsaInterest = (numTotalHsa * (1 + numHsaReturnRate)) - numTotalHsa;
@@ -91,11 +95,16 @@ export const fireMath = ({
             rothContribution: rothContributionTracker,
             rothInterest: rothInterestTracker,
             traditionalEndingBalance: numTotalTraditional,
-            traditionalContribution: traditionalTotalContributionTracker,
+            traditionalContribution: traditionalContributionTracker,
+            traditionalEmployerContribution: traditionalEmployerContributionTracker,
             traditionalInterest: traditionalInterestTracker,
             hsaEndingBalance: numTotalHsa,
             hsaContribution: hsaContributionTracker,
-            hsaInterest: hsaInterestTracker
+            hsaInterest: hsaInterestTracker,
+            startingBrokerage: numStartingBrokerage,
+            startingRoth: numStartingRoth,
+            startingTraditional: numStartingTraditional,
+            startingHsa: numStartingHsa
         })
 
 
@@ -105,7 +114,7 @@ export const fireMath = ({
         rothContributionTracker = 0;
         traditionalInterestTracker = 0;
         traditionalContributionTracker = 0;
-        traditionalTotalContributionTracker = 0;
+        traditionalEmployerContributionTracker = 0;
         hsaInterestTracker = 0;
         hsaContributionTracker = 0;
     };
