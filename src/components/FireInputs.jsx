@@ -29,7 +29,7 @@ export default function FireInputs({register, errors}) {
             <InputField 
                 id='currentAge'
                 name='currentAge'
-                registration={register('currentAge'), { valueasnumber: true }}
+                registration={register('currentAge', { valueAsNumber: true })}
                 label='Current Age'
                 type='number'
                 labelVariant='base'
@@ -43,7 +43,7 @@ export default function FireInputs({register, errors}) {
             <InputField 
                 id='fireAge'
                 name='fireAge'
-                registration={register('fireAge'), { valueasnumber: true }}
+                registration={register('fireAge', { valueAsNumber: true })}
                 label='FIRE Age'
                 type='number'
                 labelVariant='base'
@@ -57,7 +57,7 @@ export default function FireInputs({register, errors}) {
             <InputField 
                 id='currentAnnualExpenses'
                 name='currentAnnualExpenses'
-                registration={register('currentAnnualExpenses'), { valueasnumber: true }}
+                registration={register('currentAnnualExpenses', { valueAsNumber: true })}
                 label='Current Annual Expenses'
                 type='number'
                 labelVariant='base'
@@ -77,7 +77,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='totalBrokerage'
                         name='totalBrokerage'
-                        registration={register('totalBrokerage'), { valueasnumber: true }}
+                        registration={register('totalBrokerage', { valueAsNumber: true })}
                         label='Total Brokerage Balance'
                         type='number'
                         labelVariant='base'
@@ -91,7 +91,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='brokerageContribution'
                         name='brokerageContribution'
-                        registration={register('brokerageContribution'), { valueasnumber: true }}
+                        registration={register('brokerageContribution', { valueAsNumber: true })}
                         label='Brokerage Contribution'
                         type='number'
                         labelVariant='base'
@@ -105,7 +105,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='brokerageReturnRate'
                         name='brokerageReturnRate'
-                        registration={register('brokerageReturnRate'), { valueasnumber: true }}
+                        registration={register('brokerageReturnRate', { valueAsNumber: true })}
                         label='Brokerage Return Rate'
                         type='number'
                         labelVariant='base'
@@ -127,7 +127,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='totalRoth'
                         name='totalRoth'
-                        registration={register('totalRoth'), { valueasnumber: true }}
+                        registration={register('totalRoth', { valueAsNumber: true })}
                         label='Total Roth Balance'
                         type='number'
                         labelVariant='base'
@@ -141,7 +141,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='rothContribution'
                         name='rothContribution'
-                        registration={register('rothContribution'), { valueasnumber: true }}
+                        registration={register('rothContribution', { valueAsNumber: true })}
                         label='Roth Contribution'
                         type='number'
                         labelVariant='base'
@@ -155,7 +155,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='rothReturnRate'
                         name='rothReturnRate'
-                        registration={register('rothReturnRate'), { valueasnumber: true }}
+                        registration={register('rothReturnRate', { valueAsNumber: true })}
                         label='Roth Return Rate'
                         type='number'
                         labelVariant='base'
@@ -177,7 +177,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='totalTraditional'
                         name='totalTraditional'
-                        registration={register('totalTraditional'), { valueasnumber: true }}
+                        registration={register('totalTraditional', { valueAsNumber: true })}
                         label='Total Traditional Balance'
                         type='number'
                         labelVariant='base'
@@ -191,7 +191,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='tradtionalContribution'
                         name='tradtionalContribution'
-                        registration={register('tradtionalContribution'), { valueasnumber: true }}
+                        registration={register('tradtionalContribution', { valueAsNumber: true })}
                         label='Traditional Contribution'
                         type='number'
                         labelVariant='base'
@@ -205,7 +205,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='traditionalEmployerContribution'
                         name='traditionalEmployerContribution'
-                        registration={register('traditionalEmployerContribution'), { valueasnumber: true }}
+                        registration={register('traditionalEmployerContribution', { valueAsNumber: true })}
                         label='Traditional Employer Contribution'
                         type='number'
                         labelVariant='base'
@@ -219,7 +219,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='tradtionalReturnRate'
                         name='tradtionalReturnRate'
-                        registration={register('tradtionalReturnRate'), { valueasnumber: true }}
+                        registration={register('tradtionalReturnRate', { valueAsNumber: true })}
                         label='Tradtional Return Rate'
                         type='number'
                         labelVariant='base'
@@ -241,7 +241,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='totalHsa'
                         name='totalHsa'
-                        registration={register('totalHsa'), { valueasnumber: true }}
+                        registration={register('totalHsa', { valueAsNumber: true })}
                         label='Total HSA Balance'
                         type='number'
                         labelVariant='base'
@@ -256,7 +256,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='hsaContributions'
                         name='hsaContributions'
-                        registration={register('hsaContributions'), { valueasnumber: true }}
+                        registration={register('hsaContributions', { valueAsNumber: true })}
                         label='HSA Contributions'
                         type='number'
                         labelVariant='base'
@@ -270,7 +270,7 @@ export default function FireInputs({register, errors}) {
                     <InputField 
                         id='hsaReturnRate'
                         name='hsaReturnRate'
-                        registration={register('hsaReturnRate'), { valueasnumber: true }}
+                        registration={register('hsaReturnRate', { valueAsNumber: true })}
                         label='HSA Return Rate'
                         type='number'
                         labelVariant='base'

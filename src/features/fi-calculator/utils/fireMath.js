@@ -21,12 +21,13 @@ export const fireMath = ({
 
     const numAge = Number(currentAge) || 0;
     const numFireAge = Number(fireAge) || 0;
+    const numFireToRetire = Number(60 - numFireAge) || 0;
     const numCurrentAnnualExpenses = Number(currentAnnualExpenses) || 1;
     const numAnnualBrokerageContribution = Number(brokerageContribution) * 12 || 0;
     const numBrokerageReturnRate = Number(brokerageReturnRate) / 100 || 0.01;
     const numAnnualRothContribution = Number(rothContribution) * 12 || 0;
     const numRothReturnRate = Number(rothReturnRate) / 100 || 0.01;
-    const numAnnualTraditionalContribution = Number(tradtionalContribution) *12 || 0;
+    const numAnnualTraditionalContribution = Number(tradtionalContribution) * 12 || 0;
     const numAnnualTraditionalEmployerContribution = Number(traditionalEmployerContribution) * 12 || 0;
     const numTraditionalReturnRate = Number(tradtionalReturnRate) / 100 || 0.01;
     const numAnnualHsaContributions = Number(hsaContributions) * 12 || 0;
@@ -35,6 +36,12 @@ export const fireMath = ({
     const numStartingRoth = Number(totalRoth) || 0;
     const numStartingTraditional = Number(totalTraditional) || 0;
     const numStartingHsa = Number(totalHsa) || 0;
+
+    const calculateFutureExpenses = (currentExpenses, yearsOut, inflationRate = 0.03) => {
+        return currentExpenses * Math.pow((1 + inflationRate), yearsOut)
+    }
+
+    const totalFutureExpenses = calculateFutureExpenses(numCurrentAnnualExpenses, ((numFireAge - numAge) + 1))
 
     let numTotalBrokerage = Number(totalBrokerage) || 0;
     let numTotalRoth = Number(totalRoth) || 0;
@@ -50,7 +57,6 @@ export const fireMath = ({
     let hsaInterestTracker = 0;
     let hsaContributionTracker = 0;
 
-    console.log(numTotalBrokerage, numTotalRoth, numTotalTraditional, numTotalHsa)
 
     for(let age = numAge; age <= numFireAge; age++) {
 
@@ -87,7 +93,10 @@ export const fireMath = ({
 
         fireLedger.push({
             age: age,
+            fireAge: numFireAge,
+            fireToRetire: numFireToRetire,
             annualExpenses: numCurrentAnnualExpenses,
+            totalFutureExpenses: totalFutureExpenses,
             brokerageEndingBalance: numTotalBrokerage,
             brokerageContribution: brokerageContributionTracker,
             brokerageInterest: brokerageInterestTracker,

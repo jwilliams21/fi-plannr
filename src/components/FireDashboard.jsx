@@ -57,6 +57,12 @@ export default function FireDashboard({ results }) {
     const totalAfterFire = totalRothRemoveContribution + totalTraditionalEndingBalance + totalHsaEndingBalance
 
 
+    const fireToRetire = results[results.length - 1].fireToRetire;
+    const fireAge = results[results.length - 1].fireAge;
+    const annualExpenses = results[results.length - 1].annualExpenses;
+    const totalFutureExpenses = results[results.length - 1].totalFutureExpenses;
+
+
     return (
         <div>
             <div>
@@ -68,12 +74,32 @@ export default function FireDashboard({ results }) {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Money Before 59 1/2 (Brokerage & Roth Contributions)</td>
+                            <td>FIRE Balance (Brokerage & Roth Contributions)</td>
                             <td>{totalFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
                         <tr>
-                            <td>Money After 59 1/2 (Roth Starting Amount & Roth Interest & Traditional & HSA)</td>
+                            <td>
+                                Money After 59 1/2 (Roth Starting Amount & Roth Interest & Traditional & HSA)
+                                {fireToRetire > 0 ? `This money has ${fireToRetire} more years to compound!` : ''}
+                            </td>
                             <td>{totalAfterFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Are you ready to go FI at {fireAge}?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Current Annual Expenses</td>
+                            <td>{annualExpenses}</td>
+                        </tr>
+                        <tr>
+                            <td>Expenses at FIRE Age w/ inflation</td>
+                            <td>{totalFutureExpenses}</td>
                         </tr>
                     </tbody>
                 </table>
