@@ -27,7 +27,6 @@ export default function FireDashboard({ results }) {
     const totalRothContribution = results.reduce((accumulator, currentAge) => {
         return accumulator + (parseFloat(currentAge.rothContribution)) || 0;
     }, 0)
-    const totalRothRemoveContribution = (totalRothEndingBalance - totalRothContribution) - results[results.length - 1].startingRoth;
 
 
     // Traditional
@@ -53,14 +52,40 @@ export default function FireDashboard({ results }) {
     }, 0)
 
     // Combined Results
-    const totalFire = totalBrokerageEndingBalance + totalRothContribution;
-    const totalAfterFire = totalRothRemoveContribution + totalTraditionalEndingBalance + totalHsaEndingBalance
-
-
+    const totalAfterFire = totalRothEndingBalance + totalTraditionalEndingBalance + totalHsaEndingBalance
+    const rothReturnRate = results[results.length - 1].rothReturnRate;
+    const traditionalReturnRate = results[results.length - 1].traditionalReturnRate;
+    const hsaReturnRate = results[results.length - 1].hsaReturnRate;
     const fireToRetire = results[results.length - 1].fireToRetire;
     const fireAge = results[results.length - 1].fireAge;
     const annualExpenses = results[results.length - 1].annualExpenses;
     const totalFutureExpenses = results[results.length - 1].totalFutureExpenses;
+
+    for(let age = fireAge; age <= 60; age++){
+        const fireAtSixty = [];
+        let rothAtSixty = 0;
+        let traditionalAtSixty = 0;
+        let hsaAtSixty = 0;
+
+        // This is wrong, but the idea is there - we need to be able to take the interest from each year and add it to the overall account balance for each iteration
+        const lastYearRoth = fireAtSixty.length > 0 ? lastYearRoth * rothReturnRate : totalRothEndingBalance * rothReturnRate;
+
+    }
+
+    let brokerageWithdrawlRate = 0;
+
+    if(fireToRetire > 10) {
+        brokerageWithdrawlRate = 0.07
+    } else if (fireToRetire <= 10 && fireToRetire > 5) {
+        brokerageWithdrawlRate = 0.09
+    } else {
+        brokerageWithdrawlRate = 0.12
+    }
+
+    const brokerageWithdrawlAmount = totalBrokerageEndingBalance * brokerageWithdrawlRate;
+    const expenseDiff =  brokerageWithdrawlAmount - totalFutureExpenses;
+
+    
 
 
     return (
@@ -74,12 +99,12 @@ export default function FireDashboard({ results }) {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>FIRE Balance (Brokerage & Roth Contributions)</td>
-                            <td>{totalFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                            <td>FIRE Balance (Brokerage)</td>
+                            <td>{totalBrokerageEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
                         <tr>
                             <td>
-                                Money After 59 1/2 (Roth Starting Amount & Roth Interest & Traditional & HSA)
+                                Money After 59 1/2 (Roth & Traditional & HSA)
                                 {fireToRetire > 0 ? `This money has ${fireToRetire} more years to compound!` : ''}
                             </td>
                             <td>{totalAfterFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
@@ -89,17 +114,29 @@ export default function FireDashboard({ results }) {
                 <table>
                     <thead>
                         <tr>
-                            <th>Are you ready to go FI at {fireAge}?</th>
+                            <th>Are you ready to go FI at age {fireAge}?</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Current Annual Expenses</td>
-                            <td>{annualExpenses}</td>
+                            <td>{annualExpenses.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
                         <tr>
                             <td>Expenses at FIRE Age w/ inflation</td>
-                            <td>{totalFutureExpenses}</td>
+                            <td>{totalFutureExpenses.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                        <tr>
+                            <td>Brokerage/Roth Contribution Withdrawl Amount Per Year</td>
+                            <td>{brokerageWithdrawlAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                        <tr>
+                            <td>You have {expenseDiff >= 0 ? 'an overage' : 'a deficient'} of</td>
+                            <td>{expenseDiff.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                        <tr>
+                            <td>By the time you reach 60, your retirement accounts will be worth a combined</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
