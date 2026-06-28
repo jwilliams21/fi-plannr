@@ -60,17 +60,23 @@ export default function FireDashboard({ results }) {
     const fireAge = results[results.length - 1].fireAge;
     const annualExpenses = results[results.length - 1].annualExpenses;
     const totalFutureExpenses = results[results.length - 1].totalFutureExpenses;
+    const futureExpensesAtSixty = results[results.length - 1].futureExpensesAtSixty;
+
+    let runningRoth = totalRothEndingBalance;
+    let runningTraditional = totalTraditionalEndingBalance;
+    let runningHsa = totalHsaEndingBalance;
 
     for(let age = fireAge; age <= 60; age++){
-        const fireAtSixty = [];
-        let rothAtSixty = 0;
-        let traditionalAtSixty = 0;
-        let hsaAtSixty = 0;
-
-        // This is wrong, but the idea is there - we need to be able to take the interest from each year and add it to the overall account balance for each iteration
-        const lastYearRoth = fireAtSixty.length > 0 ? lastYearRoth * rothReturnRate : totalRothEndingBalance * rothReturnRate;
-
+        runningRoth += runningRoth * rothReturnRate;
+        runningTraditional += runningTraditional * traditionalReturnRate;
+        runningHsa += runningHsa * hsaReturnRate;
     }
+
+    const totalCombinedAtSixty = runningRoth + runningTraditional + runningHsa;
+    const totalRothTraditionalAtSixty = runningRoth + runningTraditional;
+    const fourPercentWithdrawlAnnual = totalRothTraditionalAtSixty * 0.04;
+    const expenseAtSixtyDiff = fourPercentWithdrawlAnnual - futureExpensesAtSixty
+
 
     let brokerageWithdrawlRate = 0;
 
@@ -134,9 +140,30 @@ export default function FireDashboard({ results }) {
                             <td>You have {expenseDiff >= 0 ? 'an overage' : 'a deficient'} of</td>
                             <td>{expenseDiff.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>What about the rest of your retirement accounts at age 60?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>By the time you reach 60, your retirement accounts will be worth a combined</td>
-                            <td></td>
+                            <td>{totalCombinedAtSixty.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                        <tr>
+                            <td>Retirement account withdrawl at 4%</td>
+                            <td>{fourPercentWithdrawlAnnual.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                        <tr>
+                            <td>Future Expenses at 60</td>
+                            <td>{futureExpensesAtSixty.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        </tr>
+                        <tr>
+                            <td>You have {expenseAtSixtyDiff >= 0 ? 'an overage' : 'a deficient'} of</td>
+                            <td>{expenseAtSixtyDiff.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                         </tr>
                     </tbody>
                 </table>

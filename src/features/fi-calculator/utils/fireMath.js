@@ -41,7 +41,11 @@ export const fireMath = ({
         return currentExpenses * Math.pow((1 + inflationRate), yearsOut)
     }
 
-    const totalFutureExpenses = calculateFutureExpenses(numCurrentAnnualExpenses, ((numFireAge - numAge) + 1))
+    const fireYearsOut = numFireAge - numAge;
+    const totalFutureExpenses = calculateFutureExpenses(numCurrentAnnualExpenses, fireYearsOut)
+
+    const sixtyYearsOut = 60 - numAge;
+    const futureExpensesAtSixty = calculateFutureExpenses(numCurrentAnnualExpenses, sixtyYearsOut)
 
     let numTotalBrokerage = Number(totalBrokerage) || 0;
     let numTotalRoth = Number(totalRoth) || 0;
@@ -97,6 +101,7 @@ export const fireMath = ({
             fireToRetire: numFireToRetire,
             annualExpenses: numCurrentAnnualExpenses,
             totalFutureExpenses: totalFutureExpenses,
+            futureExpensesAtSixty: futureExpensesAtSixty,
             brokerageEndingBalance: numTotalBrokerage,
             brokerageContribution: brokerageContributionTracker,
             brokerageInterest: brokerageInterestTracker,
