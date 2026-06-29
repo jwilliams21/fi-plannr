@@ -1,4 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
+import HeaderLogo from './HeaderLogo';
 
 export default function Layout() {
     return (
@@ -6,7 +7,9 @@ export default function Layout() {
 
             <header>
                 <div>
-                    <Link to='/'>Fi-PlannR</Link>
+                    <Link to='/'>
+                        <HeaderLogo />
+                    </Link>
                     <nav>
                         <Link to='/'>Home</Link>
                         <Link to='/basic'>Basic Calc</Link>
