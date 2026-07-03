@@ -27,7 +27,7 @@ export default function BasicCalculatorForm({ onCalculated }) {
     }
 
     return (
-        <form className='flex flex-col gap-4 p-6 w-full' onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
+        <form className='flex flex-col gap-4 px-6 w-full' onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
             <BasicInputs 
                 register={register} 
                 errors={errors} 

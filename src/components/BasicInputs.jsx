@@ -14,8 +14,8 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         labelVariant='base'
         inputVariant='base'
         divClassName='flex flex-col'
-        placeholder='$ 10,000'
-        prefix='$'
+        placeholder='10,000'
+        symbolType='currency'
         error={errors.startingAmt?.message}
         description='How much do you already have?'
       />
@@ -30,7 +30,6 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         inputVariant='base'
         divClassName='flex flex-col'
         placeholder='30'
-        prefix='#'
         error={errors.duration?.message}
         description='How many years do you plan to invest this money?'
       />
@@ -44,8 +43,8 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         labelVariant='base'
         inputVariant='base'
         divClassName='flex flex-col'
-        placeholder='10 %'
-        prefix='%'
+        placeholder='10'
+        symbolType='percentage'
         error={errors.returnRate?.message}
         description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
       />
@@ -67,21 +66,21 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         labelVariant='base'
         inputVariant='base'
         divClassName='flex flex-col'
-        placeholder='$ 100'
-        prefix='$'
+        placeholder='100'
+        symbolType='currency'
         error={errors.addContribute?.message}
         description='How much are you adding to your starting amount and when do you make that contribution?'
       />
 
       <div>
-        <label className='w-full text-xl'>Contribute at the </label>
-        <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
+        <label className='w-full text-lg font-semibold'>Contribute at the </label>
+        <div className='my-2 grid grid-cols-2 border-2 border-slate-200 rounded-xl'>
           <Button variant='toggle' active={contributionTiming === 'beginning' ? true  : false} onClick={() => {onContributionTimingChange('beginning')}}>Beginning</Button>
           <Button variant='toggle' active={contributionTiming === 'end' ? true  : false} onClick={() => {onContributionTimingChange('end')}}>End</Button>
         </div>
 
-        <label className='w-full text-xl'>of each</label>
-        <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
+        <label className='w-full text-lg font-semibold'>of each</label>
+        <div className='my-2 grid grid-cols-2 border-2 border-slate-200 rounded-xl'>
           <Button variant='toggle' active={contributionFrequency === 'monthly' ? true : false} onClick={() => {onContributionFrequencyChange('monthly')}}>Month</Button>
           <Button variant='toggle' active={contributionFrequency === 'yearly' ? true : false} onClick={() => {onContributionFrequencyChange('yearly')}}>Year</Button>
         </div>

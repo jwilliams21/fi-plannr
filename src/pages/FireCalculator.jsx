@@ -7,7 +7,6 @@ export default function FireCalculator() {
 
     return (
         <div>
-            <h2>FIRE Investment Calculator</h2>
             <FireCalculatorForm onCalculated={setFireResults} />
             <FireDashboard results={fireResults} />
         </div>

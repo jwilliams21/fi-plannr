@@ -11,16 +11,17 @@ export const InputField = ({
     inputVariant, 
     inputClassName, 
     divClassName, 
+    symbolType,
     registration, 
     description, 
     ...props }) => {
 
     const labelVariants = {
-        base: 'w-full text-xl'
+        base: 'w-full text-lg font-semibold'
     }
 
     const inputVariants = {
-        base: 'border-2 border-slate-300 rounded-lg w-full mt-2 p-2 text-lg text-slate-700'
+        base: 'rounded-lg w-full mt-2 p-2 text-lg text-slate-700'
     }
 
     return (
@@ -34,13 +35,28 @@ export const InputField = ({
                 />
             </div>
 
-            <input className={`${inputVariants[inputVariant]} ${inputClassName}`}
+            <div className='flex items-center border border-slate-700 rounded-lg
+                      focus-within:border-emerald-600 focus-within:ring-1 focus-within:ring-emerald-600 
+                      transition-all duration-200'>
+
+            {symbolType === 'currency' && (
+                <span className="text-slate-500 font-medium select-none pr-1">$</span>
+            )}
+
+            <input className={`${inputVariants[inputVariant]} ${inputClassName} w-full bg-transparent outline-none placeholder-slate-400 [appearance:textfield] [&::-webkit-outer-spin-button]:margin-0 [&::-webkit-inner-spin-button]:margin-0`}
                 id={id}
                 type={type}
                 name={name}
                 {...registration}
                 {...props}
             />
+
+            {symbolType === 'percentage' && (
+                <span className="text-slate-500 font-medium select-none pl-1">%</span>
+            )}
+
+            </div>
+
 
             {error && <span>{error.message}</span>}
 

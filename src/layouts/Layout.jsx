@@ -1,22 +1,11 @@
-import { Link, Outlet } from 'react-router-dom';
-import HeaderLogo from './HeaderLogo';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 export default function Layout() {
     return (
         <div>
 
-            <header>
-                <div>
-                    <Link to='/'>
-                        <HeaderLogo />
-                    </Link>
-                    <nav>
-                        <Link to='/'>Home</Link>
-                        <Link to='/basic'>Basic Calc</Link>
-                        <Link to='/fire'>FIRE Calc</Link>
-                    </nav>
-                </div>
-            </header>
+            <Navbar />
 
             <main>
                 <Outlet />
