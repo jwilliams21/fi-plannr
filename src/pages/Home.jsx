@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className='bg-slate-50 text-slate-950 flex flex-col gap-6 align-center justify-center px-4 mt-2'>
+    <div className='text-slate-950 flex flex-col gap-6 align-center justify-center px-4 mt-2'>
 
       <div>
         <h1 className='text-xl font-semibold pb-2'>Welcome to Fi-PlannR</h1>
