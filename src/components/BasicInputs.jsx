@@ -11,6 +11,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         registration={register('startingAmt')}
         label='Starting Balance'
         type='number'
+        step='0.01'
         labelVariant='base'
         inputVariant='base'
         divClassName='flex flex-col'
@@ -40,6 +41,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         registration={register('returnRate')}
         label='Period Rate'
         type='number'
+        step='0.01'
         labelVariant='base'
         inputVariant='base'
         divClassName='flex flex-col'
@@ -63,6 +65,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         registration={register('addContribute')}
         label='Additional Contributions'
         type='number'
+        step='0.01'
         labelVariant='base'
         inputVariant='base'
         divClassName='flex flex-col'
