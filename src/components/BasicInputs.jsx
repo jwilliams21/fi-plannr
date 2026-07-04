@@ -1,7 +1,7 @@
 import { InputField } from './ui/InputField';
 import { Button } from './ui/Button';
 
-export default function BasicInputs({ register, errors, compoundFrequency, onCompoundFrequencyChange, contributionTiming, onContributionTimingChange, contributionFrequency, onContributionFrequencyChange }) {
+export default function BasicInputs({ register, errors, contributionTiming, onContributionTimingChange, contributionFrequency, onContributionFrequencyChange }) {
 
   return (
     <div className='p-6 w-full flex flex-col gap-4'>
@@ -17,7 +17,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         divClassName='flex flex-col'
         placeholder='10,000'
         symbolType='currency'
-        error={errors.startingAmt?.message}
+        error={errors.startingAmt}
         description='How much do you already have?'
       />
 
@@ -27,11 +27,12 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         registration={register('duration')}
         label='Duration (Years)'
         type='number'
+        step='1'
         labelVariant='base'
         inputVariant='base'
         divClassName='flex flex-col'
         placeholder='30'
-        error={errors.duration?.message}
+        error={errors.duration}
         description='How many years do you plan to invest this money?'
       />
 
@@ -47,17 +48,9 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         divClassName='flex flex-col'
         placeholder='10'
         symbolType='percentage'
-        error={errors.returnRate?.message}
-        description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
+        error={errors.returnRate}
+        description='What return rate are you expecting?  If you are not sure, try 8% to start.'
       />
-
-      {/* <div>
-        <label className='w-full text-xl'>Compound</label>
-        <div className='my-2 grid grid-cols-2 border-4 border-gray-800 rounded-xl'>
-          <Button variant='toggle' active={compoundFrequency === 'annual' ? true : false}  onClick={() => {onCompoundFrequencyChange('annual')}}>Annually</Button>
-          <Button variant='toggle' active={compoundFrequency === 'monthly' ? true : false} onClick={() => {onCompoundFrequencyChange('monthly')}}>Monthly</Button>
-        </div>
-      </div> */}
 
       <InputField
         id='addContribute'
@@ -71,7 +64,7 @@ export default function BasicInputs({ register, errors, compoundFrequency, onCom
         divClassName='flex flex-col'
         placeholder='100'
         symbolType='currency'
-        error={errors.addContribute?.message}
+        error={errors.addContribute}
         description='How much are you adding to your starting amount and when do you make that contribution?'
       />
 
