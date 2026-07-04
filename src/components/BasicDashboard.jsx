@@ -4,9 +4,7 @@ export default function BasicDashboard({ results }) {
 
   if(!results) {
     return (
-      <div>
-        <h2>Calculate your success above!</h2>
-      </div>
+      <div className='mt-10'></div>
     )
   }
 

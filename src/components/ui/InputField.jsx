@@ -21,7 +21,7 @@ export const InputField = ({
     }
 
     const inputVariants = {
-        base: 'rounded-lg w-full mt-2 p-2 text-lg text-slate-700'
+        base: 'w-full text-lg text-slate-800 bg-transparent outline-none placeholder-slate-400'
     }
 
     return (
@@ -35,25 +35,25 @@ export const InputField = ({
                 />
             </div>
 
-            <div className='flex items-center border border-slate-700 rounded-lg
-                      focus-within:border-emerald-600 focus-within:ring-1 focus-within:ring-emerald-600 
-                      transition-all duration-200'>
+            <div className='flex items-center border border-slate-700 rounded-lg px-3 py-2
+                focus-within:border-emerald-600 focus-within:ring-1 focus-within:ring-emerald-600 
+                transition-all duration-200 bg-transparent'>
 
-            {symbolType === 'currency' && (
-                <span className="text-slate-500 font-medium select-none pr-1">$</span>
-            )}
+                {symbolType === 'currency' && (
+                    <span className="text-slate-500 font-medium select-none pr-1.5 shrink-0">$</span>
+                )}
 
-            <input className={`${inputVariants[inputVariant]} ${inputClassName} w-full bg-transparent outline-none placeholder-slate-400 [appearance:textfield] [&::-webkit-outer-spin-button]:margin-0 [&::-webkit-inner-spin-button]:margin-0`}
-                id={id}
-                type={type}
-                name={name}
-                {...registration}
-                {...props}
-            />
+                <input className={`${inputVariants[inputVariant]} ${inputClassName} w-full bg-transparent outline-none placeholder-slate-400 [appearance:textfield] [&::-webkit-outer-spin-button]:margin-0 [&::-webkit-inner-spin-button]:margin-0`}
+                    id={id}
+                    type={type}
+                    name={name}
+                    {...registration}
+                    {...props}
+                />
 
-            {symbolType === 'percentage' && (
-                <span className="text-slate-500 font-medium select-none pl-1">%</span>
-            )}
+                {symbolType === 'percentage' && (
+                    <span className="text-slate-500 font-medium select-none pl-1.5 shrink-0">%</span>
+                )}
 
             </div>
 
