@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { FiPieChart } from './FiPieChart';
 import { ArrowUpCircle, ArrowDownCircle } from 'lucide-react';
 
 export default function BasicDashboard({ results }) {
   const [scheduleOpen, setScheduleOpen] = useState(false)
+
+  const tableRef = useRef(null);
 
   if(!results) {
     return (
@@ -22,8 +24,24 @@ export default function BasicDashboard({ results }) {
     return accumulator + (parseFloat(currentYear.yearAddContribute) || 0);
   }, 0)
 
+  const gridLayout = 'grid grid-cols-[40px_1fr_1fr_1fr] gap-4 items-center'
+
   function toggleSchedule() {
     setScheduleOpen(!scheduleOpen);
+  }
+
+  const handleToggle = () => {
+    if(!scheduleOpen) {
+      toggleSchedule();
+      setTimeout(() => {
+      window.scrollBy({
+        top: 250,
+        behavior: 'smooth'
+      }, 50)
+      })
+    } else {
+      toggleSchedule();
+    }
   }
   
   return (
@@ -57,15 +75,48 @@ export default function BasicDashboard({ results }) {
       </table>
 
       {/* Doughnut Chart */}
-      <div className='my-4 p-4 text-center border-2 border-blue-500 mx-2'>
-        <h2>Growth Projections</h2>
+      <div className='my-2'>
+        <h2 className='text-white text-lg bg-emerald-500 font-bold text-center py-1'>Growth Projections</h2>
         <FiPieChart 
           results={results}
         />
       </div>
 
+      <div className='w-full overflow-x-auto'>
+        <div 
+        className='flex items-center justify-evenly p-1 text-lg bg-emerald-500 text-white font-bold'
+        onClick={() => handleToggle()}
+        >
+          <span>Accumulation Schedule</span>
+          {scheduleOpen ? <ArrowUpCircle /> : <ArrowDownCircle />}
+        </div>
+        {scheduleOpen && 
+          <div ref={tableRef} className='text-sm scroll-mt-2'>
+            {/* Table Header */}
+            <div className={`${gridLayout} bg-slate-100 py-3 px-4 font-bold text-slate-700 rounded-t-lg border-b border-slate-200`}>
+              <div className='text-center'>Year</div>
+              <div className='text-center'>Deposit</div>
+              <div className='text-center'>Interest</div>
+              <div className='text-center'>Balance</div>
+            </div>
+            {/* Table Body */}
+            <div className='divide-y divide-slate-100 border-x border-b border-slate-200 rounded-b-lg'>
+            {results.map((row) => {
+              return (
+                <div key={row.year} className={`${gridLayout} py-3 px-4`}>
+                  <div className='text-center font-bold'>{row.year}</div>
+                  <div className='text-center'>${row.yearAddContribute.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                  <div className='text-center text-emerald-600'>${row.yearInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                  <div className='text-center'>${row.yearEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                </div>
+              )})}
+            </div>
+          </div>
+        }
+      </div>
+
       {/* Accumulation Table */}
-      <table className='w-full table-fixed border-separate border-spacing-y-1 text-center'>
+      {/* <table className='w-full table-fixed border-separate border-spacing-y-1 text-center'>
         <thead >
           <tr>
             <th 
@@ -101,7 +152,7 @@ export default function BasicDashboard({ results }) {
         </tbody>
         }
 
-      </table>
+      </table> */}
 
     </div>
   )

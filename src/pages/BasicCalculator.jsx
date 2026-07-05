@@ -5,9 +5,20 @@ import BasicDashboard from "../components/BasicDashboard";
 export default function BasicCalculator() {
     const [basicResults, setBasicResults] = useState(null);
 
+    const handleCalculated = (results) => {
+        setBasicResults(results);
+        setTimeout(() => {
+            window.scrollBy({
+                top: 450,
+                behavior: 'smooth'
+            })
+        }, 50)
+    };
+
+
     return (
         <div className='flex flex-col gap-2'>
-            <BasicCalculatorForm onCalculated={setBasicResults} />
+            <BasicCalculatorForm onCalculated={handleCalculated} />
             <BasicDashboard results={basicResults} />
         </div>
     )
