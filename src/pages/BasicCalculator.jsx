@@ -6,7 +6,7 @@ export default function BasicCalculator() {
     const [basicResults, setBasicResults] = useState(null);
 
     return (
-        <div>
+        <div className='flex flex-col gap-2'>
             <BasicCalculatorForm onCalculated={setBasicResults} />
             <BasicDashboard results={basicResults} />
         </div>

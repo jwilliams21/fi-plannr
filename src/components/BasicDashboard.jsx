@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { FiPieChart } from './FiPieChart';
+import { ArrowUpCircle, ArrowDownCircle } from 'lucide-react';
 
 export default function BasicDashboard({ results }) {
+  const [scheduleOpen, setScheduleOpen] = useState(false)
 
   if(!results) {
     return (
@@ -18,33 +21,37 @@ export default function BasicDashboard({ results }) {
   const totalContribution = results.reduce((accumulator, currentYear) => {
     return accumulator + (parseFloat(currentYear.yearAddContribute) || 0);
   }, 0)
+
+  function toggleSchedule() {
+    setScheduleOpen(!scheduleOpen);
+  }
   
   return (
-    <div>
+    <div className='w-full p-4'>
 
       {/* Top Line Results */}
-      <table>
+      <table className='w-full table-fixed border-separate border-spacing-y-2'>
         <thead>
           <tr>
-            <th colSpan={2}>Results</th>
+            <th colSpan={2} className='bg-emerald-500 text-white text-lg p-1'>Results</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Starting Amount</td>
-            <td>{startingAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td className='py-1 font-bold'>End Balance</td>
+            <td className='text-center text-md font-bold  text-white bg-sky-700 rounded-sm py-1'>$ {totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
-            <td>Total Contributions</td>
-            <td>{totalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td className='py-1'>Total Interest</td>
+            <td className='text-center py-1'>$ {totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
-            <td>Total Interest</td>
-            <td>{totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td className='py-1'>Total Contributions</td>
+            <td className='text-center py-1'>$ {totalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
-            <td>End Balance</td>
-            <td>{totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+            <td className='py-1'>Starting Amount</td>
+            <td className='text-center py-1'>$ {startingAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
         </tbody>
       </table>
@@ -58,32 +65,42 @@ export default function BasicDashboard({ results }) {
       </div>
 
       {/* Accumulation Table */}
-      <table>
-        <thead>
+      <table className='w-full table-fixed border-separate border-spacing-y-1 text-center'>
+        <thead >
           <tr>
-            <th>Accumulation Schedule</th>
-          </tr>
-          <tr>
-            <td>Year</td>
-            <td>Starting Amount</td>
-            <td>Total Contributions</td>
-            <td>Total Interest</td>
-            <td>Ending Balance</td>
+            <th 
+            colSpan={4} 
+            className='bg-emerald-500 text-white text-lg'
+            onClick={() => toggleSchedule()}
+            >
+              <div className='flex items-center justify-evenly p-1'>
+                <span>Accumulation Schedule</span>
+                {scheduleOpen ? <ArrowUpCircle /> : <ArrowDownCircle />}
+              </div>
+            </th>
           </tr>
         </thead>
+        {scheduleOpen &&
         <tbody>
+          <tr>
+            <th className='font-semibold text-md'>Year</th>
+            <th className='font-semibold text-md'>Deposit</th>
+            <th className='font-semibold text-md'>Interest</th>
+            <th className='font-semibold text-md'>Balance</th>
+          </tr>
           {results.map((row) => {
             return (
               <tr key={row.year}>
-                <td>{row.year}</td>
-                <td>{row.yearStartingAmt.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                <td>{row.yearAddContribute.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                <td>{row.yearInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                <td>{row.yearEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className='text-sm'>{row.year}</td>
+                <td className='text-sm'>$ {row.yearAddContribute.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className='text-sm'>$ {row.yearInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                <td className='text-sm'>$ {row.yearEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
               </tr>
             )
           })}
         </tbody>
+        }
+
       </table>
 
     </div>
