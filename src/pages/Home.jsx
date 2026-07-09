@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className='text-slate-950 flex flex-col justify-between px-6 pb-8 h-[calc(100vh-137px)] md:px-36'>
+    <div className='text-slate-950 flex flex-col justify-between px-6 pb-8 h-[calc(100dvh-137px)] md:px-36'>
 
       <div className='space-y-4 pt-6'>
         <div className='md:text-center md:flex md:flex-col md:gap-2'>
