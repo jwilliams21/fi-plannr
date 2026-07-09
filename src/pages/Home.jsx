@@ -2,15 +2,15 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className='text-slate-950 flex flex-col justify-between px-6 pb-8 h-[calc(100dvh-137px)] md:px-36'>
+    <div className='text-slate-950 flex flex-col gap-20 px-6 pb-8 h-[calc(100dvh-137px)] md:px-36 lg:px-60'>
 
       <div className='space-y-4 pt-6'>
-        <div className='md:text-center md:flex md:flex-col md:gap-2'>
+        <div className='md:text-center md:flex md:flex-col'>
           <h1 className='text-xl font-semibold pb-2'>Welcome to Fi-PlannR</h1>
           <p className='md:text-lg'>Your centralized workspace for tracking compound growth and mapping your path to early retirement.</p>
         </div>
 
-        <div className='md:text-center lg:px-52'>
+        <div className='md:text-center lg:px-52 lg:mt-8'>
           <p className='font-semibold pb-2 md:text-xl'>Disclaimer</p>
           <p className='md:text-lg'>
             This tool is built entirely for educational and entertainment purposes. We love compounding interest, but we aren't certified financial planners or fiduciary advisors. 
