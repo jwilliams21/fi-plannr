@@ -31,7 +31,11 @@ export default function BasicCalculatorForm({ onCalculated }) {
     }
 
     return (
-        <form className='flex flex-col gap-4 px-6 w-full md:border-2 md:border-amber-600 md:px-32 lg:border-2 lg:border-violet-700 lg:px-56' onSubmit={handleSubmit(onSubmit)} autoComplete='off' noValidate>
+        <form 
+        className='flex flex-col gap-4 px-6 w-full' 
+        onSubmit={handleSubmit(onSubmit)} 
+        autoComplete='off' 
+        noValidate>
             <BasicInputs 
                 register={register} 
                 errors={errors} 
@@ -41,7 +45,7 @@ export default function BasicCalculatorForm({ onCalculated }) {
                 onContributionFrequencyChange={setContributionFrequency}
             />
             <Button
-                variant='base'
+                variant='calc'
                 type='submit'
             >Invest Me!</Button>
         </form>

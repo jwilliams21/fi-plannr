@@ -24,7 +24,7 @@ export default function BasicDashboard({ results }) {
     return accumulator + (parseFloat(currentYear.yearAddContribute) || 0);
   }, 0)
 
-  const gridLayout = 'grid grid-cols-[40px_1fr_1fr_1fr] gap-4 items-center'
+  const scheduleGridLayout = 'grid grid-cols-[40px_1fr_1fr_1fr] gap-4 items-center'
 
   function toggleSchedule() {
     setScheduleOpen(!scheduleOpen);
@@ -47,28 +47,33 @@ export default function BasicDashboard({ results }) {
   return (
     <div className='w-full p-4'>
 
+      <div>
+        <div></div>
+        <div></div>
+      </div>
+
       {/* Top Line Results */}
       <table className='w-full table-fixed border-separate border-spacing-y-2'>
         <thead>
           <tr>
-            <th colSpan={2} className='bg-emerald-500 text-white text-lg p-1'>Results</th>
+            <th colSpan={2} className='bg-emerald-500 text-white text-lg p-1 md:p-2'>Results</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className='py-1 font-bold'>End Balance</td>
+            <td className='py-1 font-bold lg:text-center'>End Balance</td>
             <td className='text-center text-md font-bold  text-white bg-sky-700 rounded-sm py-1'>$ {totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
-            <td className='py-1'>Total Interest</td>
+            <td className='py-1 lg:text-center'>Total Interest</td>
             <td className='text-center py-1'>$ {totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
-            <td className='py-1'>Total Contributions</td>
+            <td className='py-1 lg:text-center'>Total Contributions</td>
             <td className='text-center py-1'>$ {totalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
           <tr>
-            <td className='py-1'>Starting Amount</td>
+            <td className='py-1 lg:text-center'>Starting Amount</td>
             <td className='text-center py-1'>$ {startingAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
           </tr>
         </tbody>
@@ -76,7 +81,7 @@ export default function BasicDashboard({ results }) {
 
       {/* Doughnut Chart */}
       <div className='my-2'>
-        <h2 className='text-white text-lg bg-emerald-500 font-bold text-center py-1'>Growth Projections</h2>
+        <h2 className='text-white text-lg bg-emerald-500 font-bold text-center py-1 md:p-2'>Growth Projections</h2>
         <FiPieChart 
           results={results}
         />
@@ -84,7 +89,7 @@ export default function BasicDashboard({ results }) {
 
       <div className='w-full overflow-x-auto'>
         <div 
-        className='flex items-center justify-evenly p-1 text-lg bg-emerald-500 text-white font-bold'
+        className='flex items-center justify-center gap-2 p-1 text-lg bg-emerald-500 text-white font-bold md:p-2'
         onClick={() => handleToggle()}
         >
           <span>Accumulation Schedule</span>
@@ -93,7 +98,7 @@ export default function BasicDashboard({ results }) {
         {scheduleOpen && 
           <div ref={tableRef} className='text-sm scroll-mt-2'>
             {/* Table Header */}
-            <div className={`${gridLayout} bg-slate-100 py-3 px-4 font-bold text-slate-700 rounded-t-lg border-b border-slate-200`}>
+            <div className={`${scheduleGridLayout} bg-slate-100 py-3 px-4 font-bold text-slate-700 rounded-t-lg border-b border-slate-200`}>
               <div className='text-center'>Year</div>
               <div className='text-center'>Deposit</div>
               <div className='text-center'>Interest</div>
@@ -103,7 +108,7 @@ export default function BasicDashboard({ results }) {
             <div className='divide-y divide-slate-100 border-x border-b border-slate-200 rounded-b-lg'>
             {results.map((row) => {
               return (
-                <div key={row.year} className={`${gridLayout} py-3 px-4`}>
+                <div key={row.year} className={`${scheduleGridLayout} py-3 px-4`}>
                   <div className='text-center font-bold'>{row.year}</div>
                   <div className='text-center'>${row.yearAddContribute.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                   <div className='text-center text-emerald-600'>${row.yearInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>

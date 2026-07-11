@@ -17,7 +17,7 @@ export default function BasicCalculator() {
 
 
     return (
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 lg:px-28'>
             <BasicCalculatorForm onCalculated={handleCalculated} />
             <BasicDashboard results={basicResults} />
         </div>
