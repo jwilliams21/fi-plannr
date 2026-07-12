@@ -10,6 +10,24 @@ export default function FireCalculatorForm({ onCalculated }) {
 
     const { handleSubmit, register, formState: { errors } } = useForm({
         resolver: zodResolver(fireSchema),
+        defaultValues:{
+            currentAge: 30,
+            fireAge: 55,
+            currentAnnualExpenses: 0,
+            totalBrokerage: 0,
+            brokerageContribution: 0,
+            brokerageReturnRate: 0,
+            totalRoth: 0,
+            rothContribution: 0,
+            rothReturnRate: 0,
+            totalTraditional: 0,
+            tradtionalContribution: 0,
+            traditionalEmployerContribution: 0,
+            tradtionalReturnRate: 0,
+            totalHsa: 0,
+            hsaContributions: 0,
+            hsaReturnRate: 0,
+        }
     });
 
     const onSubmit = (data) => {

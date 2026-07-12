@@ -117,9 +117,9 @@ export default function FireInputs({register, errors}) {
                                 labelVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
-                                placeholder='10 %'
+                                placeholder='8 %'
                                 error={errors.brokerageReturnRate?.message}
-                                description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
+                                description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                             />
                         </div>}
                     </div>
@@ -170,9 +170,9 @@ export default function FireInputs({register, errors}) {
                                 labelVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
-                                placeholder='10 %'
+                                placeholder='8 %'
                                 error={errors.rothReturnRate?.message}
-                                description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
+                                description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                             />
                         </div>}
                     </div>
@@ -237,9 +237,9 @@ export default function FireInputs({register, errors}) {
                                 labelVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
-                                placeholder='10 %'
+                                placeholder='8 %'
                                 error={errors.tradtionalReturnRate?.message}
-                                description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
+                                description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                             />
                         </div>}
                     </div>
@@ -291,9 +291,9 @@ export default function FireInputs({register, errors}) {
                                 labelVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
-                                placeholder='10 %'
+                                placeholder='8 %'
                                 error={errors.hsaReturnRate?.message}
-                                description='What return rate are you expecting?  Typical annual rates vary between 6% - 12%.  Not sure?  Try 10% as a starting point.'
+                                description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                             />
                         </div>}
                     </div>

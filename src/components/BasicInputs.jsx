@@ -47,7 +47,7 @@ export default function BasicInputs({ register, errors, contributionTiming, onCo
           labelVariant='base'
           inputVariant='base'
           divClassName='flex flex-col'
-          placeholder='10 %'
+          placeholder='8 %'
           symbolType='percentage'
           error={errors.returnRate}
           description='What return rate are you expecting?  If you are not sure, try 8% to start.'
