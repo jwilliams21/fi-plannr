@@ -73,7 +73,7 @@ export default function FireInputs({register, errors}) {
                 <div className='flex flex-col gap-6'>
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
                         onClick={() => toggleBrokerage()}>
                             <h2>Brokerage Accounts</h2>
                             {brokerageOpen ? <ArrowDownCircle /> : <ArrowUpCircle />}
@@ -126,7 +126,7 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
                         onClick={() => toggleRoth()}>
                             <h2>Roth Accounts</h2>
                             {rothOpen ? <ArrowDownCircle /> : <ArrowUpCircle />}
@@ -179,7 +179,7 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
                         onClick={() => toggleTraditional()}>
                             <h2>Traditional Accounts</h2>
                             {traditionalOpen ? <ArrowDownCircle /> : <ArrowUpCircle />}
@@ -246,7 +246,7 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
                         onClick={() => toggleHsa()}>
                             <h2>HSA Accounts</h2>
                             {hsaOpen ? <ArrowDownCircle /> : <ArrowUpCircle />}
