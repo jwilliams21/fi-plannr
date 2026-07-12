@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { MoveRight } from 'lucide-react';
 
 export const FiPieChart = ({ results }) => {
     const [isMounted, setIsMounted] = useState(false);
@@ -112,8 +113,10 @@ export const FiPieChart = ({ results }) => {
                                 const percentage = total > 0 ? ((currentVal / total) * 100).toFixed(1) : 0;
 
                                 return(
-                                    <span className='font-bold'>
-                                        {value} <span className='font-bold pl-2'>({percentage})%</span>
+                                    <span className='inline-flex gap-2 font-bold mb-1 lg:text-xl'>
+                                        <span>{value}</span>
+                                        <MoveRight />
+                                        <span className='font-bold'>{percentage}%</span>
                                     </span>
                                 )
                             }}

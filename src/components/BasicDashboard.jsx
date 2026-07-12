@@ -47,24 +47,24 @@ export default function BasicDashboard({ results }) {
   return (
     <div className='w-full px-6'>
 
-      <div>
-        <div className='w-full bg-emerald-500 text-white text-lg p-1 text-center font-bold mb-2 md:p-2'>Results</div>
-        <div className='grid grid-cols-2 gap-2 md:px-12 md:text-center'>
-          <div className='py-1 font-bold'>End Balance</div>
-          <div className='text-center text-md font-bold  text-white bg-sky-700 rounded-sm py-1 md:mx-16 lg:mx-36'>$ {totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-          <div className='py-1'>Total Interest</div>
-          <div className='text-center py-1'>$ {totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-          <div className='py-1'>Total Contributions</div>
-          <div className='text-center py-1'>$ {totalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-          <div className='py-1'>Starting Amount</div>
-          <div className='text-center py-1'>$ {startingAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+      <div className='lg:text-xl'>
+        <div className='w-full bg-emerald-500 text-white text-lg p-1 text-center font-bold mb-2 md:p-2 lg:text-2xl'>Results</div>
+        <div className='grid grid-cols-2 gap-2 md:px-12 md:text-center md:place-items-center'>
+          <div className='py-1 font-bold lg:text-xl'>End Balance</div>
+          <div className='text-center text-md font-bold  text-white bg-sky-700 rounded-sm py-1 md:px-16 whitespace-nowrap'>$ {totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className='py-1 lg:text-xl'>Total Interest</div>
+          <div className='text-center py-1 lg:text-xl'>$ {totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className='py-1 lg:text-xl'>Total Contributions</div>
+          <div className='text-center py-1 lg:text-xl'>$ {totalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className='py-1 lg:text-xl'>Starting Amount</div>
+          <div className='text-center py-1 lg:text-xl'>$ {startingAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
         </div>
       </div>
 
 
       {/* Doughnut Chart */}
       <div className='my-2'>
-        <h2 className='text-white text-lg bg-emerald-500 font-bold text-center py-1 md:p-2'>Growth Projections</h2>
+        <h2 className='text-white text-lg bg-emerald-500 font-bold text-center py-1 md:p-2 lg:text-2xl'>Growth Projections</h2>
         <FiPieChart 
           results={results}
         />
@@ -72,7 +72,8 @@ export default function BasicDashboard({ results }) {
 
       <div className='w-full overflow-x-auto'>
         <div 
-        className='flex items-center justify-center gap-2 p-1 text-lg bg-emerald-500 text-white font-bold md:p-2'
+        className='flex items-center justify-center gap-2 p-1 text-lg bg-emerald-500 text-white font-bold cursor-pointer border-2 border-emerald-500 
+        md:p-2 lg:text-2xl hover:bg-white hover:text-emerald-500'
         onClick={() => handleToggle()}
         >
           <span>Accumulation Schedule</span>
@@ -102,46 +103,6 @@ export default function BasicDashboard({ results }) {
           </div>
         }
       </div>
-
-      {/* Accumulation Table */}
-      {/* <table className='w-full table-fixed border-separate border-spacing-y-1 text-center'>
-        <thead >
-          <tr>
-            <th 
-            colSpan={4} 
-            className='bg-emerald-500 text-white text-lg'
-            onClick={() => toggleSchedule()}
-            >
-              <div className='flex items-center justify-evenly p-1'>
-                <span>Accumulation Schedule</span>
-                {scheduleOpen ? <ArrowUpCircle /> : <ArrowDownCircle />}
-              </div>
-            </th>
-          </tr>
-        </thead>
-        {scheduleOpen &&
-        <tbody>
-          <tr>
-            <th className='font-semibold text-md'>Year</th>
-            <th className='font-semibold text-md'>Deposit</th>
-            <th className='font-semibold text-md'>Interest</th>
-            <th className='font-semibold text-md'>Balance</th>
-          </tr>
-          {results.map((row) => {
-            return (
-              <tr key={row.year}>
-                <td className='text-sm'>{row.year}</td>
-                <td className='text-sm'>$ {row.yearAddContribute.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                <td className='text-sm'>$ {row.yearInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                <td className='text-sm'>$ {row.yearEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-        }
-
-      </table> */}
-
     </div>
   )
 }
