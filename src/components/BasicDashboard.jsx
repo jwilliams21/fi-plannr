@@ -45,39 +45,22 @@ export default function BasicDashboard({ results }) {
   }
   
   return (
-    <div className='w-full p-4'>
+    <div className='w-full px-6'>
 
       <div>
-        <div></div>
-        <div></div>
+        <div className='w-full bg-emerald-500 text-white text-lg p-1 text-center font-bold mb-2 md:p-2'>Results</div>
+        <div className='grid grid-cols-2 gap-2 md:px-12 md:text-center'>
+          <div className='py-1 font-bold'>End Balance</div>
+          <div className='text-center text-md font-bold  text-white bg-sky-700 rounded-sm py-1 md:mx-16 lg:mx-36'>$ {totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className='py-1'>Total Interest</div>
+          <div className='text-center py-1'>$ {totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className='py-1'>Total Contributions</div>
+          <div className='text-center py-1'>$ {totalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+          <div className='py-1'>Starting Amount</div>
+          <div className='text-center py-1'>$ {startingAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+        </div>
       </div>
 
-      {/* Top Line Results */}
-      <table className='w-full table-fixed border-separate border-spacing-y-2'>
-        <thead>
-          <tr>
-            <th colSpan={2} className='bg-emerald-500 text-white text-lg p-1 md:p-2'>Results</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className='py-1 font-bold lg:text-center'>End Balance</td>
-            <td className='text-center text-md font-bold  text-white bg-sky-700 rounded-sm py-1'>$ {totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-          </tr>
-          <tr>
-            <td className='py-1 lg:text-center'>Total Interest</td>
-            <td className='text-center py-1'>$ {totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-          </tr>
-          <tr>
-            <td className='py-1 lg:text-center'>Total Contributions</td>
-            <td className='text-center py-1'>$ {totalContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-          </tr>
-          <tr>
-            <td className='py-1 lg:text-center'>Starting Amount</td>
-            <td className='text-center py-1'>$ {startingAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-          </tr>
-        </tbody>
-      </table>
 
       {/* Doughnut Chart */}
       <div className='my-2'>

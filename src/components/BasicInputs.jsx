@@ -5,7 +5,7 @@ export default function BasicInputs({ register, errors, contributionTiming, onCo
 
   return (
     <div className='p-6 w-full flex flex-col gap-8'>
-      <div className='md:grid md:grid-cols-2 md:gap-4'>
+      <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
         <InputField
           id='startingAmt'
           name='startingAmt'

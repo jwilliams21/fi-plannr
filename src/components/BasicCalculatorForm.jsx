@@ -32,7 +32,7 @@ export default function BasicCalculatorForm({ onCalculated }) {
 
     return (
         <form 
-        className='flex flex-col gap-4 px-6 w-full' 
+        className='flex flex-col items-center w-full' 
         onSubmit={handleSubmit(onSubmit)} 
         autoComplete='off' 
         noValidate>

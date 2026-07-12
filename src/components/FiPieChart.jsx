@@ -3,11 +3,30 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recha
 
 export const FiPieChart = ({ results }) => {
     const [isMounted, setIsMounted] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         setIsMounted(true);
         return () => setIsMounted(false);
     }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
+    // useEffect(() => {
+    //     const mediaQuery = window.matchMedia('(max-w: 767px)');
+    //     setIsMobile(mediaQuery.matches);
+    //     const handleResize = (e) => setIsMobile(e.matches);
+    //     mediaQuery.addEventListener('change', handleResize);
+
+    //     return () => mediaQuery.removeEventListener('change', handleResize)
+    // }, [])
 
     if (!isMounted || !results || !Array.isArray(results) || results.length === 0) {
         return (
@@ -60,44 +79,48 @@ export const FiPieChart = ({ results }) => {
         );
     }
 
-    return (
-        <div className="w-full h-[300px] block mx-auto text-left focus:outline-none overflow-hidden">
-            <ResponsiveContainer width="100%" height="100%">
-                <PieChart height={300} className='outline-none'>
-                    <Pie
-                        data={data}
-                        dataKey="value"
-                        cx="50%"  
-                        cy="50%"   
-                        innerRadius={50}  
-                        outerRadius={95}  
-                        isAnimationActive={false}
-                    >
-                        {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={entry.color} />
-                        ))}
-                    </Pie>
-                    
-                    <Tooltip formatter={(value) => formatCurrency(value)} />
-                    <Legend 
-                        iconType="circle" 
-                        layout="vertical" 
-                        align="center"
-                        verticalAlign="bottom"
-                        formatter={(value, entry) => {
-                            const total = data.reduce((sum, item) => sum + item.value, 0);
-                            const currentVal = entry.payload?.value || 0;
-                            const percentage = total > 0 ? ((currentVal / total) * 100).toFixed(1) : 0;
+    // block mx-auto text-left focus:outline-none overflow-hidden
 
-                            return(
-                                <span className='font-bold'>
-                                    {value} <span className='font-bold pl-4'>({percentage})%</span>
-                                </span>
-                            )
-                        }}
-                    />
-                </PieChart>
-            </ResponsiveContainer>
+    return (
+        <div className='flex flex-col md:flex-row items-center w-full mx-auto max-w-4xl justify-center gap-6 p-4'>
+            <div className="w-full h-[300px] flex justify-center items-center">
+                <ResponsiveContainer width="100%" height="100%">
+                    <PieChart height={300} className='outline-none'>
+                        <Pie
+                            data={data}
+                            dataKey="value"
+                            cx="50%"  
+                            cy="50%"   
+                            innerRadius={50}  
+                            outerRadius={95}  
+                            isAnimationActive={false}
+                        >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={entry.color} />
+                            ))}
+                        </Pie>
+                        
+                        <Tooltip formatter={(value) => formatCurrency(value)} />
+                        <Legend 
+                            iconType="circle" 
+                            layout={isMobile ? 'horizontal' : 'vertical'}
+                            align={isMobile ? 'center' : 'right'}
+                            verticalAlign={isMobile ? 'bottom' : 'middle'}
+                            formatter={(value, entry) => {
+                                const total = data.reduce((sum, item) => sum + item.value, 0);
+                                const currentVal = entry.payload?.value || 0;
+                                const percentage = total > 0 ? ((currentVal / total) * 100).toFixed(1) : 0;
+
+                                return(
+                                    <span className='font-bold'>
+                                        {value} <span className='font-bold pl-2'>({percentage})%</span>
+                                    </span>
+                                )
+                            }}
+                        />
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
         </div>
     );
 };
