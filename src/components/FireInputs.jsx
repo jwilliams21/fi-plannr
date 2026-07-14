@@ -197,20 +197,20 @@ export default function FireInputs({register, errors}) {
                                 divClassName='flex flex-col'
                                 placeholder='$ 50,000'
                                 error={errors.totalTraditional?.message}
-                                description='This is total tradtional dollars (including Safe Harbor contributions) in all retirement accounts.'
+                                description='This is total traditional dollars (including Safe Harbor contributions) in all retirement accounts.'
                             />
 
                             <InputField 
-                                id='tradtionalContribution'
-                                name='tradtionalContribution'
-                                registration={register('tradtionalContribution', { valueAsNumber: true })}
+                                id='traditionalContribution'
+                                name='traditionalContribution'
+                                registration={register('traditionalContribution', { valueAsNumber: true })}
                                 label='Traditional Contribution'
                                 type='number'
                                 labelVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 500'
-                                error={errors.tradtionalContribution?.message}
+                                error={errors.traditionalContribution?.message}
                                 description='How much do you put in all traditional accounts each month?'
                             />
 
@@ -229,16 +229,16 @@ export default function FireInputs({register, errors}) {
                             />
 
                             <InputField 
-                                id='tradtionalReturnRate'
-                                name='tradtionalReturnRate'
-                                registration={register('tradtionalReturnRate', { valueAsNumber: true })}
-                                label='Tradtional Return Rate'
+                                id='traditionalReturnRate'
+                                name='traditionalReturnRate'
+                                registration={register('traditionalReturnRate', { valueAsNumber: true })}
+                                label='traditional Return Rate'
                                 type='number'
                                 labelVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='8 %'
-                                error={errors.tradtionalReturnRate?.message}
+                                error={errors.traditionalReturnRate?.message}
                                 description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                             />
                         </div>}

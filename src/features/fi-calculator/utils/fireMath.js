@@ -10,9 +10,9 @@ export const fireMath = ({
     rothContribution, 
     rothReturnRate, 
     totalTraditional, 
-    tradtionalContribution, 
+    traditionalContribution, 
     traditionalEmployerContribution, 
-    tradtionalReturnRate, 
+    traditionalReturnRate, 
     totalHsa, 
     hsaContributions, 
     hsaReturnRate }) => {
@@ -27,9 +27,9 @@ export const fireMath = ({
     const numBrokerageReturnRate = Number(brokerageReturnRate) / 100 || 0.01;
     const numAnnualRothContribution = Number(rothContribution) * 12 || 0;
     const numRothReturnRate = Number(rothReturnRate) / 100 || 0.01;
-    const numAnnualTraditionalContribution = Number(tradtionalContribution) * 12 || 0;
+    const numAnnualTraditionalContribution = Number(traditionalContribution) * 12 || 0;
     const numAnnualTraditionalEmployerContribution = Number(traditionalEmployerContribution) * 12 || 0;
-    const numTraditionalReturnRate = Number(tradtionalReturnRate) / 100 || 0.01;
+    const numTraditionalReturnRate = Number(traditionalReturnRate) / 100 || 0.01;
     const numAnnualHsaContributions = Number(hsaContributions) * 12 || 0;
     const numHsaReturnRate = Number(hsaReturnRate) / 100 || 0.01;
     const numStartingBrokerage = Number(totalBrokerage) || 0;

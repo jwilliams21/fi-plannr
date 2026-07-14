@@ -14,12 +14,8 @@ export default function BasicCalculatorForm({ onCalculated }) {
 
     const { handleSubmit, register, formState: { errors } } = useForm({
         resolver: zodResolver(basicSchema),
-        defaultValues: {
-            startingAmt: 10000,
-            duration: 30,
-            returnRate: 8,
-            addContribute: 0
-        }
+        defaultValues: basicSchema.parse({}),
+        shouldUnregister: false,
     });
 
     const onSubmit = (data) => {

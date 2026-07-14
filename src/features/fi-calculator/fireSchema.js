@@ -12,7 +12,7 @@ export const fireSchema = z.object({
         .step(1, 'Only whole years allowed.')
         .default(55),
     currentAnnualExpenses: z.coerce.number()
-        .min(1, 'Annual expenses must greater than 0.')
+        .min(0, 'Annual expenses must greater than 0.')
         .step(0.01, 'Only two places past the decimal is allowed.')
         .default(0),
     totalBrokerage: z.coerce.number()
@@ -26,7 +26,7 @@ export const fireSchema = z.object({
     brokerageReturnRate: z.coerce.number()
         .min(0.01, 'Brokerage return rate must be greater than 0.')
         .step(0.01, 'Only two places past the decimal is allowed.')
-        .default(0),
+        .default(8),
     totalRoth: z.coerce.number()
         .min(0, 'Total roth cannot be a negative balance.')
         .step(0.01, 'Only two places past the decimal is allowed.')
@@ -38,12 +38,12 @@ export const fireSchema = z.object({
     rothReturnRate: z.coerce.number()
         .min(0.01, 'Roth return rate must be greater than 0.')
         .step(0.01, 'Only two places past the decimal is allowed.')
-        .default(0),
+        .default(8),
     totalTraditional: z.coerce.number()
         .min(0, 'Total traditional cannot be a negative balance.')
         .step(0.01, 'Only two places past the decimal is allowed.')
         .default(0),
-    tradtionalContribution: z.coerce.number()
+    traditionalContribution: z.coerce.number()
         .min(0, 'Traditional contribution cannot be a negative balance.')
         .step(0.01, 'Only two places past the decimal is allowed.')
         .default(0),
@@ -51,10 +51,10 @@ export const fireSchema = z.object({
         .min(0, 'Traditional employer contributions cannot be a negative balance.')
         .step(0.01, 'Only two places past the decimal is allowed.')
         .default(0),
-    tradtionalReturnRate: z.coerce.number()
+    traditionalReturnRate: z.coerce.number()
         .min(0.01, 'Traditional return rate must be greater than 0.')
         .step(0.01, 'Only two places past the decimal is allowed.')
-        .default(0),
+        .default(8),
     totalHsa: z.coerce.number()
         .min(0, 'Total HSA cannot be a negative balance.')
         .step(0.01, 'Only two places past the decimal is allowed.')
@@ -66,5 +66,5 @@ export const fireSchema = z.object({
     hsaReturnRate: z.coerce.number()
         .min(0.01, 'HSA return rate must be greater than 0.')
         .step(0.01, 'Only two places past the decimal is allowed.')
-        .default(0)
+        .default(8)
 })
