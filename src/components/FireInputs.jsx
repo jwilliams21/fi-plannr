@@ -27,7 +27,7 @@ export default function FireInputs({register, errors}) {
 
     return (
         <div className='p-6 w-full flex flex-col'>
-            <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+            <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
                 <InputField 
                     id='currentAge'
                     name='currentAge'
@@ -69,7 +69,9 @@ export default function FireInputs({register, errors}) {
                     error={errors.currentAnnualExpenses?.message}
                     description='Add up everything you spend money on throughout the year (e.g., mortgage, car payments, take-out, lightsaber-dueling lessons, etc.).'
                 />
+            </div>
 
+            <div className='md:grid-cols-4 md:mt-8'>
                 <div className='flex flex-col gap-6'>
                     <div className='flex flex-col gap-2'>
                         <div 
