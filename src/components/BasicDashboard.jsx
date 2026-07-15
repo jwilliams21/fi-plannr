@@ -9,7 +9,7 @@ export default function BasicDashboard({ results }) {
 
   if(!results) {
     return (
-      <div className='mt-10'></div>
+      <div></div>
     )
   }
 

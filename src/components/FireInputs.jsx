@@ -75,13 +75,22 @@ export default function FireInputs({register, errors}) {
                 <div className='flex flex-col gap-6'>
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
+                        lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleBrokerage()}>
-                            <h2>Brokerage Accounts</h2>
-                            {brokerageOpen ? <ArrowDownCircle /> : <ArrowUpCircle />}
+                            <div></div>
+                            <h2 className='text-center'>Brokerage Accounts</h2>
+                            {brokerageOpen ? 
+                            <div className='flex justify-left items-center'>
+                                <ArrowDownCircle />
+                            </div>
+                            : 
+                            <div className='flex justify-left items-center'>
+                                <ArrowUpCircle />
+                            </div>}
                         </div>
                         {brokerageOpen && 
-                        <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col gap-2 lg:grid lg:grid-cols-3 lg:gap-6'>
                             <InputField 
                                 id='totalBrokerage'
                                 name='totalBrokerage'
@@ -128,13 +137,22 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
+                        lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleRoth()}>
-                            <h2>Roth Accounts</h2>
-                            {rothOpen ? <ArrowDownCircle /> : <ArrowUpCircle />}
+                            <div></div>
+                            <h2 className='text-center'>Roth Accounts</h2>
+                            {rothOpen ? 
+                            <div className='flex justify-left items-center'>
+                                <ArrowDownCircle />
+                            </div>
+                            : 
+                            <div className='flex justify-left items-center'>
+                                <ArrowUpCircle />
+                            </div>}
                         </div>
                         {rothOpen &&
-                        <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col gap-2 lg:grid lg:grid-cols-3 lg:gap-6'>
                             <InputField 
                                 id='totalRoth'
                                 name='totalRoth'
@@ -181,13 +199,22 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
+                        className='cursor-pointer gap-2 flex justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center 
+                        lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleTraditional()}>
-                            <h2>Traditional Accounts</h2>
-                            {traditionalOpen ? <ArrowDownCircle /> : <ArrowUpCircle />}
+                            <div></div>
+                            <h2 className='text-center'>Traditional Accounts</h2>
+                            {traditionalOpen ? 
+                            <div className='flex justify-left items-center'>
+                                <ArrowDownCircle />
+                            </div>
+                            : 
+                            <div className='flex justify-left items-center'>
+                                <ArrowUpCircle />
+                            </div>}
                         </div>
                         {traditionalOpen &&
-                        <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col gap-2 lg:grid lg:grid-cols-4 lg:gap-6'>
                             <InputField 
                                 id='totalTraditional'
                                 name='totalTraditional'
@@ -248,13 +275,22 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center'
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
+                        lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleHsa()}>
-                            <h2>HSA Accounts</h2>
-                            {hsaOpen ? <ArrowDownCircle /> : <ArrowUpCircle />}
+                            <div></div>
+                            <h2 className='text-center'>HSA Accounts</h2>
+                            {hsaOpen ? 
+                            <div className='flex justify-left items-center'>
+                                <ArrowDownCircle />
+                            </div>
+                            : 
+                            <div className='flex justify-left items-center'>
+                                <ArrowUpCircle />
+                            </div>}
                         </div>
                         {hsaOpen &&
-                        <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col gap-2 lg:grid lg:grid-cols-3 lg:gap-6'>
                             <InputField 
                                 id='totalHsa'
                                 name='totalHsa'
