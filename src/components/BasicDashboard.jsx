@@ -80,7 +80,7 @@ export default function BasicDashboard({ results }) {
           {scheduleOpen ? <ArrowUpCircle /> : <ArrowDownCircle />}
         </div>
         {scheduleOpen && 
-          <div ref={tableRef} className='text-sm scroll-mt-2'>
+          <div ref={tableRef} className='text-sm scroll-mt-2 md:text-lg lg:text-xl'>
             {/* Table Header */}
             <div className={`${scheduleGridLayout} bg-slate-100 py-3 px-4 font-bold text-slate-700 rounded-t-lg border-b border-slate-200`}>
               <div className='text-center'>Year</div>
