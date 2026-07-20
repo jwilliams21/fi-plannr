@@ -26,7 +26,7 @@ export default function FireCalculatorForm({ onCalculated }) {
                 errors={errors} 
             />
             <Button
-                variant='calc'
+                variant='fireCalc'
                 type='submit'
             >Calculate FIRE Success</Button>
         </form>

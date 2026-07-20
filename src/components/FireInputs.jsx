@@ -71,12 +71,12 @@ export default function FireInputs({register, errors}) {
                 />
             </div>
 
-            <div className='md:grid-cols-4 md:mt-8'>
+            <div className='mt-6 md:grid-cols-4 md:mt-8'>
                 <div className='flex flex-col gap-6'>
                     <div className='flex flex-col gap-2'>
                         <div 
                         className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
-                        lg:py-2 lg:grid lg:grid-cols-3'
+                        py-1 lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleBrokerage()}>
                             <div></div>
                             <h2 className='text-center'>Brokerage Accounts</h2>
@@ -138,7 +138,7 @@ export default function FireInputs({register, errors}) {
                     <div className='flex flex-col gap-2'>
                         <div 
                         className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
-                        lg:py-2 lg:grid lg:grid-cols-3'
+                        py-1 lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleRoth()}>
                             <div></div>
                             <h2 className='text-center'>Roth Accounts</h2>
@@ -200,7 +200,7 @@ export default function FireInputs({register, errors}) {
                     <div className='flex flex-col gap-2'>
                         <div 
                         className='cursor-pointer gap-2 flex justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center 
-                        lg:py-2 lg:grid lg:grid-cols-3'
+                        py-1 lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleTraditional()}>
                             <div></div>
                             <h2 className='text-center'>Traditional Accounts</h2>
@@ -276,7 +276,7 @@ export default function FireInputs({register, errors}) {
                     <div className='flex flex-col gap-2'>
                         <div 
                         className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
-                        lg:py-2 lg:grid lg:grid-cols-3'
+                        py-1 lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleHsa()}>
                             <div></div>
                             <h2 className='text-center'>HSA Accounts</h2>

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className='text-slate-950 flex flex-col gap-20 px-6 pb-8 h-[calc(100dvh-137px)] md:px-36 lg:px-60'>
+    <div className='text-slate-950 flex flex-col gap-10 px-6 pb-8 h-[calc(100dvh-137px)] md:px-36 lg:px-60'>
 
       <div className='space-y-4 pt-6'>
         <div className='md:text-center md:flex md:flex-col'>
@@ -19,11 +19,22 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='flex justify-center'>
-        <Link to='/basic' className='font-bold text-white bg-emerald-500 shadow-lg text-center text-xl p-4 rounded-lg'>
-          Click Here For Basic Calc!
-        </Link>
+      <div className='grid grid-cols-2 gap-4'>
+        <div className='flex justify-center'>
+          <Link to='/basic' className='font-bold text-white bg-emerald-500 shadow-lg text-center text-lg p-4 rounded-lg'>
+            Basic Calc
+          </Link>
+        </div>
+
+        <div className='flex justify-center'>
+          <Link 
+          to='/fire' 
+          className='font-bold text-white shadow-xl text-center text-lg p-4 rounded-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700'>
+            FIRE Calc
+          </Link>
+        </div>
       </div>
+
 
     </div>
   )
