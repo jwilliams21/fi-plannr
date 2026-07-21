@@ -95,79 +95,82 @@ export default function FireDashboard({ results }) {
 
     return (
         <div>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan={2}>FIRE Results</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>FIRE Balance (Brokerage)</td>
-                            <td>{totalBrokerageEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Money After 59 1/2 (Roth & Traditional & HSA)
-                                {fireToRetire > 0 ? `This money has ${fireToRetire} more years to compound!` : ''}
-                            </td>
-                            <td>{totalAfterFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Are you ready to go FI at age {fireAge}?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Current Annual Expenses</td>
-                            <td>{annualExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Expenses at FIRE Age w/ inflation</td>
-                            <td>{totalFutureExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Brokerage/Roth Contribution Withdrawl Amount Per Year</td>
-                            <td>{brokerageWithdrawlAmount?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>You have {expenseDiff >= 0 ? 'an overage' : 'a deficient'} of</td>
-                            <td>{expenseDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>What about the rest of your retirement accounts at age 60?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>By the time you reach 60, your retirement accounts will be worth a combined</td>
-                            <td>{totalCombinedAtSixty?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Retirement account withdrawl at 4%</td>
-                            <td>{fourPercentWithdrawlAnnual?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Future Expenses at 60</td>
-                            <td>{futureExpensesAtSixty?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>You have {expenseAtSixtyDiff >= 0 ? 'an overage' : 'a deficient'} of</td>
-                            <td>{expenseAtSixtyDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
+            <div className='w-full px-2'>
+                <div>
+                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'>FIRE Results</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center'>
+                        <div className='font-bold'>FIRE Balance (Brokerage)</div>
+                        <div className='text-center font-bold  text-white bg-sky-700 rounded-sm py-1 px-2 md:px-16 whitespace-nowrap'>$ {totalBrokerageEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div>Roth & Traditional & HSA {fireToRetire > 0 ? `This money has ${fireToRetire} more years to compound!` : ''}</div>
+                        <div>$ {totalAfterFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'>Are you ready to go FI at age {fireAge}?</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center'>
+                        <div>Current Annual Expenses</div>
+                        <div>{annualExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div>Expenses at FIRE Age w/ inflation</div>
+                        <div>{totalFutureExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div>Brokerage/Roth Contribution Withdrawl Amount Per Year</div>
+                        <div>{brokerageWithdrawlAmount?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div>You have {expenseDiff >= 0 ? 'an overage' : 'a deficient'} of</div>
+                        <div>{expenseDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'>What about the rest of your retirement accounts at age 60?</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center'>
+                        <div>By the time you reach 60, your retirement accounts will be worth a combined</div>
+                        <div>{totalCombinedAtSixty?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div>Retirement account withdrawl at 4%</div>
+                        <div>{fourPercentWithdrawlAnnual?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div>Future Expenses at 60</div>
+                        <div>{futureExpensesAtSixty?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div>You have {expenseAtSixtyDiff >= 0 ? 'an overage' : 'a deficient'} of</div>
+                        <div>{expenseAtSixtyDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center'>
+                        <div></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center'>
+                        <div></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center'>
+                        <div></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center'>
+                        <div></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center'>
+                        <div></div>
+                    </div>
+                </div>
+                
+
+
                 <table>
                     <thead>
                         <tr>
@@ -189,8 +192,7 @@ export default function FireDashboard({ results }) {
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div>
+
                 <table>
                     <thead>
                         <tr>

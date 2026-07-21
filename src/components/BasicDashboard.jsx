@@ -45,7 +45,7 @@ export default function BasicDashboard({ results }) {
   }
   
   return (
-    <div className='w-full px-6'>
+    <div className='w-full px-2'>
 
       <div className='lg:text-xl'>
         <div className='w-full bg-emerald-500 text-white text-lg p-1 text-center font-bold mb-2 md:p-2 lg:text-2xl'>Results</div>
