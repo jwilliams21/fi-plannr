@@ -97,173 +97,91 @@ export default function FireDashboard({ results }) {
         <div>
             <div className='w-full px-2'>
                 <div>
-                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'>FIRE Results</div>
-                    <div className='grid grid-cols-2 gap-2 place-items-center'>
-                        <div className='font-bold'>FIRE Balance (Brokerage)</div>
-                        <div className='text-center font-bold  text-white bg-sky-700 rounded-sm py-1 px-2 md:px-16 whitespace-nowrap'>$ {totalBrokerageEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                        <div>Roth & Traditional & HSA {fireToRetire > 0 ? `This money has ${fireToRetire} more years to compound!` : ''}</div>
+                    <div className='w-full text-lg bg-emerald-500 text-white text-center font-bold py-1'>FIRE Results</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center pt-2 pb-4'>
+                        <div className='w-full text-left font-bold pl-1'>FIRE Balance (Brokerage)</div>
+                        <div className='font-bold  text-white bg-sky-700 rounded-sm py-1 px-2 md:px-16 whitespace-nowrap'>$ {totalBrokerageEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Roth & Traditional & HSA {fireToRetire > 0 ? `This money has ${fireToRetire} more years to compound!` : ''}</div>
                         <div>$ {totalAfterFire.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                     </div>
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'>Are you ready to go FI at age {fireAge}?</div>
-                    <div className='grid grid-cols-2 gap-2 place-items-center'>
-                        <div>Current Annual Expenses</div>
+                    <div className='w-full text-lg bg-emerald-500 text-white text-center font-bold py-1'>Are you ready to go FI at age {fireAge}?</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center pt-2 pb-4'>
+                        <div className='w-full text-left pl-1'>Current Annual Expenses</div>
                         <div>{annualExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                        <div>Expenses at FIRE Age w/ inflation</div>
+                        <div className='w-full text-left pl-1'>Expenses at FIRE Age w/ inflation</div>
                         <div>{totalFutureExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                        <div>Brokerage/Roth Contribution Withdrawl Amount Per Year</div>
+                        <div className='w-full text-left pl-1'>Brokerage/Roth Contribution Withdrawl Amount Per Year</div>
                         <div>{brokerageWithdrawlAmount?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                        <div>You have {expenseDiff >= 0 ? 'an overage' : 'a deficient'} of</div>
+                        <div className='w-full text-left pl-1'>You have {expenseDiff >= 0 ? 'an overage' : 'a deficient'} of</div>
                         <div>{expenseDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                     </div>
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'>What about the rest of your retirement accounts at age 60?</div>
-                    <div className='grid grid-cols-2 gap-2 place-items-center'>
-                        <div>By the time you reach 60, your retirement accounts will be worth a combined</div>
+                    <div className='w-full text-lg bg-emerald-500 text-white text-center font-bold py-1'>Retirement accounts at age 60</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center pt-2 pb-4'>
+                        <div className='w-full text-left pl-1'>By the time you reach 60, your retirement accounts will be worth a combined</div>
                         <div>{totalCombinedAtSixty?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                        <div>Retirement account withdrawl at 4%</div>
+                        <div className='w-full text-left pl-1'>Retirement account withdrawl at 4%</div>
                         <div>{fourPercentWithdrawlAnnual?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                        <div>Future Expenses at 60</div>
+                        <div className='w-full text-left pl-1'>Future Expenses at 60</div>
                         <div>{futureExpensesAtSixty?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                        <div>You have {expenseAtSixtyDiff >= 0 ? 'an overage' : 'a deficient'} of</div>
+                        <div className='w-full text-left pl-1'>You have {expenseAtSixtyDiff >= 0 ? 'an overage' : 'a deficient'} of</div>
                         <div>{expenseAtSixtyDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                     </div>
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
-                    <div className='grid grid-cols-2 gap-2 place-items-center'>
-                        <div></div>
+                    <div className='w-full text-lg bg-emerald-500 text-white text-center font-bold py-1'>Brokerage Results</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center pt-2 pb-4'>
+                        <div className='w-full font-bold text-left pl-1'>Brokerage Total</div>
+                        <div>{totalBrokerageEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total Brokerage Interest</div>
+                        <div>{totalBrokerageInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total Brokerage Contributions</div>
+                        <div>{totalBrokerageContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                     </div>
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
-                    <div className='grid grid-cols-2 gap-2 place-items-center'>
-                        <div></div>
+                    <div className='w-full text-lg bg-emerald-500 text-white text-center font-bold py-1'>Roth Results</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center pt-2 pb-4'>
+                        <div className='w-full font-bold text-left pl-1'>Roth Total</div>
+                        <div>{totalRothEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total Roth Interest</div>
+                        <div>{totalRothInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total Roth Contributions</div>
+                        <div>{totalRothContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                     </div>
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
-                    <div className='grid grid-cols-2 gap-2 place-items-center'>
-                        <div></div>
+                    <div className='w-full text-lg bg-emerald-500 text-white text-center font-bold py-1'>Traditional Results</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center pt-2 pb-4'>
+                        <div className='w-full font-bold text-left pl-1'>Traditional Total</div>
+                        <div>{totalTraditionalEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total Traditional Interest</div>
+                        <div>{totalTraditionalInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total Traditional Contributions</div>
+                        <div>{totalTraditionalContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total Traditional Employer Contribution</div>
+                        <div>{totalTraditionalEmployerContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                     </div>
                 </div>
-
                 <div>
-                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
-                    <div className='grid grid-cols-2 gap-2 place-items-center'>
-                        <div></div>
+                    <div className='w-full text-lg bg-emerald-500 text-white text-center font-bold py-1'>HSA Results</div>
+                    <div className='grid grid-cols-2 gap-2 place-items-center pt-2 pb-4'>
+                        <div className='w-full font-bold text-left pl-1'>HSA Total</div>
+                        <div>{totalHsaEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total HSA Interest</div>
+                        <div>{totalHsaInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='w-full text-left pl-1'>Total HSA Contributions</div>
+                        <div>{totalHsaContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                     </div>
                 </div>
-
-                <div>
-                    <div className='w-full text-lg bg-linear-to-r from-amber-300 via-orange-500 to-red-700 text-white text-center font-bold py-1'></div>
-                    <div className='grid grid-cols-2 gap-2 place-items-center'>
-                        <div></div>
-                    </div>
-                </div>
-                
-
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan={2}>Brokerage Results</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Brokerage Total</td>
-                            <td>{totalBrokerageEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Brokerage Interest</td>
-                            <td>{totalBrokerageInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Brokerage Contributions</td>
-                            <td>{totalBrokerageContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan={2}>Roth Results</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Roth Total</td>
-                            <td>{totalRothEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Roth Interest</td>
-                            <td>{totalRothInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Roth Contributions</td>
-                            <td>{totalRothContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan={2}>Traditional Results</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Traditional Total</td>
-                            <td>{totalTraditionalEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Traditional Interest</td>
-                            <td>{totalTraditionalInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Traditional Contribution</td>
-                            <td>{totalTraditionalContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Traditional Employer Contribution</td>
-                            <td>{totalTraditionalEmployerContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan={2}>HSA Results</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>HSA Total</td>
-                            <td>{totalHsaEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total HSA Interest</td>
-                            <td>{totalHsaInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                        <tr>
-                            <td>Total HSA Contributions</td>
-                            <td>{totalHsaContribution?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
 
