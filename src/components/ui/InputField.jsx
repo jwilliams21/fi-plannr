@@ -15,7 +15,8 @@ export const InputField = ({
     divClassName, 
     symbolType,
     registration, 
-    description, 
+    description,
+    labelInfoVariant,
     ...props }) => {
 
     const [isFocused, setIsFocused] = useState(false);
@@ -77,6 +78,7 @@ export const InputField = ({
                 <LabelInfo
                     label={label}
                     description={description}
+                    variant={labelInfoVariant}
                 />
             </div>
 

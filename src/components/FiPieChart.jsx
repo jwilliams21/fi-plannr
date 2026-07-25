@@ -55,9 +55,9 @@ export const FiPieChart = ({ results }) => {
     }, 0);
 
     const rawData = [
-        { name: 'Starting Amount', value: Math.round(principalNum) || 0, color: '#f59e0b' },       
-        { name: 'Your Contributions', value: Math.round(contributionsNum) || 0, color: '#0ea5e9' }, 
-        { name: 'Investment Growth', value: Math.round(growthNum) || 0, color: '#10b981' },       
+        { name: 'Starting Amount', value: Math.round(principalNum) || 0, color: '#FBBF24' },       
+        { name: 'Your Contributions', value: Math.round(contributionsNum) || 0, color: '#6366F1' }, 
+        { name: 'Investment Growth', value: Math.round(growthNum) || 0, color: '#059669' },       
     ];
 
     const data = rawData.filter(item => item.value > 0);

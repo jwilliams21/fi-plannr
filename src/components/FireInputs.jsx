@@ -35,6 +35,7 @@ export default function FireInputs({register, errors}) {
                     label='Current Age'
                     type='number'
                     labelVariant='base'
+                    labelInfoVariant='base'
                     inputVariant='base'
                     divClassName='flex flex-col'
                     placeholder='25'
@@ -49,6 +50,7 @@ export default function FireInputs({register, errors}) {
                     label='FIRE Age'
                     type='number'
                     labelVariant='base'
+                    labelInfoVariant='base'
                     inputVariant='base'
                     divClassName='flex flex-col'
                     placeholder='50'
@@ -63,6 +65,7 @@ export default function FireInputs({register, errors}) {
                     label='Current Annual Expenses'
                     type='number'
                     labelVariant='base'
+                    labelInfoVariant='base'
                     inputVariant='base'
                     divClassName='flex flex-col'
                     placeholder='$ 60,000'
@@ -75,7 +78,7 @@ export default function FireInputs({register, errors}) {
                 <div className='flex flex-col gap-6'>
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-600 bg-emerald-600 text-white text-center
                         py-1 lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleBrokerage()}>
                             <div></div>
@@ -98,6 +101,7 @@ export default function FireInputs({register, errors}) {
                                 label='Total Brokerage Balance'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 50,000'
@@ -112,6 +116,7 @@ export default function FireInputs({register, errors}) {
                                 label='Brokerage Contribution'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 200'
@@ -126,6 +131,7 @@ export default function FireInputs({register, errors}) {
                                 label='Brokerage Return Rate'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='8 %'
@@ -137,7 +143,7 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-600 bg-emerald-600 text-white text-center
                         py-1 lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleRoth()}>
                             <div></div>
@@ -160,6 +166,7 @@ export default function FireInputs({register, errors}) {
                                 label='Total Roth Balance'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 20,000'
@@ -174,6 +181,7 @@ export default function FireInputs({register, errors}) {
                                 label='Roth Contribution'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 625'
@@ -188,6 +196,7 @@ export default function FireInputs({register, errors}) {
                                 label='Roth Return Rate'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='8 %'
@@ -199,7 +208,7 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='cursor-pointer gap-2 flex justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center 
+                        className='cursor-pointer gap-2 flex justify-center items-center text-lg font-bold border-2 border-emerald-600 bg-emerald-600 text-white text-center 
                         py-1 lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleTraditional()}>
                             <div></div>
@@ -222,6 +231,7 @@ export default function FireInputs({register, errors}) {
                                 label='Total Traditional Balance'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 50,000'
@@ -236,6 +246,7 @@ export default function FireInputs({register, errors}) {
                                 label='Traditional Contribution'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 500'
@@ -250,6 +261,7 @@ export default function FireInputs({register, errors}) {
                                 label='Traditional Employer Contribution'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 300'
@@ -264,6 +276,7 @@ export default function FireInputs({register, errors}) {
                                 label='traditional Return Rate'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='8 %'
@@ -275,7 +288,7 @@ export default function FireInputs({register, errors}) {
 
                     <div className='flex flex-col gap-2'>
                         <div 
-                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-500 bg-emerald-500 text-white text-center
+                        className='cursor-pointer flex gap-2 justify-center items-center text-lg font-bold border-2 border-emerald-600 bg-emerald-600 text-white text-center
                         py-1 lg:py-2 lg:grid lg:grid-cols-3'
                         onClick={() => toggleHsa()}>
                             <div></div>
@@ -298,6 +311,7 @@ export default function FireInputs({register, errors}) {
                                 label='Total HSA Balance'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 5,000'
@@ -313,6 +327,7 @@ export default function FireInputs({register, errors}) {
                                 label='HSA Contributions'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='$ 200'
@@ -327,6 +342,7 @@ export default function FireInputs({register, errors}) {
                                 label='HSA Return Rate'
                                 type='number'
                                 labelVariant='base'
+                                labelInfoVariant='base'
                                 inputVariant='base'
                                 divClassName='flex flex-col'
                                 placeholder='8 %'

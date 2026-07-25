@@ -21,7 +21,7 @@ export default function Home() {
 
       <div className='grid grid-cols-2 gap-4'>
         <div className='flex justify-center'>
-          <Link to='/basic' className='font-bold text-white bg-emerald-500 shadow-lg text-center text-lg p-4 rounded-lg'>
+          <Link to='/basic' className='font-bold text-white bg-emerald-600 shadow-lg text-center text-lg p-4 rounded-lg'>
             Basic Calc
           </Link>
         </div>

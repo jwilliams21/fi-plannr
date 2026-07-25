@@ -13,7 +13,7 @@ export default function Navbar() {
                         to='/basic' 
                         className={({ isActive }) => 
                             `text-xl border-b-2 transition-all pb-2
-                            ${ isActive ? 'border-b-4 border-emerald-500' : 'border-transparent' }
+                            ${ isActive ? 'border-b-4 border-emerald-600' : 'border-transparent' }
                             `
                         }>Basic Calc
                     </NavLink>
@@ -21,7 +21,7 @@ export default function Navbar() {
                         to='/fire' 
                         className={({ isActive }) => 
                             `text-xl border-b-2 transition-all pb-2 
-                            ${ isActive ? 'border-b-4 border-emerald-500' : 'border-transparent' }
+                            ${ isActive ? 'border-b-4 border-emerald-600' : 'border-transparent' }
                             `
                         }>
                         <span 
