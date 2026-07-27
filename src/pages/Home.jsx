@@ -19,7 +19,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='md:w-5/8 md:mx-auto grid grid-cols-2 gap-4 md:gap-0'>
+      <div className='md:w-5/8 xl:w-3/8 md:mx-auto grid grid-cols-2 gap-4 md:gap-0'>
         <div className='flex justify-center'>
           <Link to='/basic' className='font-bold text-white bg-emerald-600 shadow-lg text-center text-lg p-4 rounded-lg'>
             Invest Calc

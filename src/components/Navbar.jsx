@@ -8,11 +8,11 @@ export default function Navbar() {
                 <NavLink to='/'end>
                     <HeaderLogo />
                 </NavLink>
-                <nav className='md:w-5/8 md:mx-auto flex justify-evenly mt-6 font-semibold text-xl'>
+                <nav className='md:w-5/8 xl:w-3/8 md:mx-auto grid grid-cols-2 gap-4 place-items-center mt-6 font-semibold text-xl '>
                     <NavLink 
                         to='/basic' 
                         className={({ isActive }) => 
-                            `text-xl border-b-2 transition-all pb-2
+                            `text-xl border-b-2 transition-all 
                             ${ isActive ? 'border-b-4 border-emerald-600' : 'border-transparent' }
                             `
                         }>Invest Calc
@@ -20,7 +20,7 @@ export default function Navbar() {
                     <NavLink 
                         to='/fire' 
                         className={({ isActive }) => 
-                            `text-xl border-b-2 transition-all pb-2 
+                            `text-xl border-b-2 transition-all 0
                             ${ isActive ? 'border-b-4 border-emerald-600' : 'border-transparent' }
                             `
                         }>
