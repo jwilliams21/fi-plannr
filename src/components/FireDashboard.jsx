@@ -138,7 +138,7 @@ export default function FireDashboard({ results }) {
 
                 <div>
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Are you ready to be FI at age {fireAge}?</div>
-                    <div className='grid grid-cols-[25px_2fr_1fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
+                    <div className='grid grid-cols-[25px_1.8fr_1.2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
                         <div>
                             <LabelInfo 
                             label='Current Annual Expenses'
@@ -150,12 +150,12 @@ export default function FireDashboard({ results }) {
                         <div>$ {annualExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div>
                             <LabelInfo 
-                            label='Inflated Expenses'
-                            description='These are your projected annual expenses are your FIRE age using a 3% inflation rate per year'
+                            label='Future Expenses'
+                            description='These are your projected annual expenses at your FIRE age using a 3% inflation rate per year'
                             variant='result'
                             />
                         </div>
-                        <div className='w-full text-left pl-1'>Inflated Expenses</div>
+                        <div className='w-full text-left pl-1'>Future Expenses at {fireAge}</div>
                         <div>$ {totalFutureExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div>
                             <LabelInfo 
@@ -174,8 +174,8 @@ export default function FireDashboard({ results }) {
                             variant='result'
                             />
                         </div>
-                        <div className='w-full text-left pl-1'>You have {expenseDiff >= 0 ? 'an overage' : 'a deficient'} of</div>
-                        <div className={expenseDiff >=0 ? 'text-emerald-600' : 'text-rose-600'}>
+                        <div className='w-full text-left pl-1'>Annual {expenseDiff >= 0 ? 'overage' : 'deficient'}</div>
+                        <div className={`text-white rounded-sm py-1 px-2 font-bold  ${expenseAtSixtyDiff >=0 ? 'bg-emerald-600' : 'bg-rose-600'}`}>
                             $ {expenseDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </div>
                     </div>
@@ -183,7 +183,7 @@ export default function FireDashboard({ results }) {
 
                 <div>
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Retirement accounts at age 60</div>
-                    <div className='grid grid-cols-[25px_2fr_1fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
+                    <div className='grid grid-cols-[25px_1.8fr_1.2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
                         <div>
                             <LabelInfo 
                             label='Balance'
@@ -218,8 +218,8 @@ export default function FireDashboard({ results }) {
                             variant='result'
                             />
                         </div>
-                        <div className='w-full text-left pl-1'>You have {expenseAtSixtyDiff >= 0 ? 'an overage' : 'a deficient'} of</div>
-                        <div className={expenseDiff >=0 ? 'text-emerald-600' : 'text-rose-600'}>
+                        <div className={`${expenseAtSixtyDiff > 9999 ? 'w-full' : 'w-full'} text-left pl-1`}>Annual {expenseDiff >= 0 ? 'overage' : 'deficient'}</div>
+                        <div className={`text-white rounded-sm py-1 px-2 font-bold  ${expenseAtSixtyDiff >=0 ? 'bg-emerald-600' : 'bg-rose-600'}`}>
                             $ {expenseAtSixtyDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </div>
                     </div>
@@ -229,7 +229,7 @@ export default function FireDashboard({ results }) {
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Brokerage Results</div>
                     <div className='grid grid-cols-[2fr_1fr] gap-2 pl-2 pt-2 pb-4'>
                         <div className='font-bold text-left my-auto'>Brokerage Balance</div>
-                        <div className='w-5/8 lg:w-1/4 lg:px-0 mx-auto font-bold text-center text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalBrokerageEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='lg:w-1/4 lg:px-0 mx-auto font-bold text-center px-2 text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalBrokerageEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='text-left'>Brokerage Interest</div>
                         <div className='text-center'>$ {totalBrokerageInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='text-left'>Brokerage Contributions</div>
@@ -241,7 +241,7 @@ export default function FireDashboard({ results }) {
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Roth Results</div>
                     <div className='grid grid-cols-[2fr_1fr] gap-2 pl-2 pt-2 pb-4'>
                         <div className='font-bold text-left my-auto'>Roth Balance</div>
-                        <div className='w-5/8 lg:w-1/4 mx-auto font-bold text-center text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalRothEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='lg:w-1/4 mx-auto px-2 font-bold text-center text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalRothEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='text-left'>Roth Interest</div>
                         <div className='text-center'>$ {totalRothInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='text-left'>Roth Contributions</div>
@@ -253,7 +253,7 @@ export default function FireDashboard({ results }) {
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Traditional Results</div>
                     <div className='grid grid-cols-[2fr_1fr] gap-2 pl-2 pt-2 pb-4'>
                         <div className='font-bold text-left my-auto'>Traditional Balance</div>
-                        <div className='w-5/8 mx-auto font-bold text-center text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalTraditionalEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='mx-auto px-2 font-bold text-center text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalTraditionalEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='text-left'>Traditional Interest</div>
                         <div className='text-center'>$ {totalTraditionalInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='text-left'>Traditional Contributions</div>
@@ -266,7 +266,7 @@ export default function FireDashboard({ results }) {
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>HSA Results</div>
                     <div className='grid grid-cols-[2fr_1fr] gap-2 pl-2 pt-2 pb-4'>
                         <div className='font-bold text-left my-auto'>HSA Balance</div>
-                        <div className='w-5/8 mx-auto font-bold text-center text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalHsaEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='mx-auto px-2 font-bold text-center text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalHsaEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='text-left'>HSA Interest</div>
                         <div className='text-center'>$ {totalHsaInterest?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='text-left'>HSA Contributions</div>
