@@ -16,7 +16,7 @@ export const InputField = ({
     description,
     labelInfoVariant,
     placeholder,
-    ...props 
+    ...props
 }) => {
 
     const { ref, ...restRegistration } = registration || {};
@@ -73,7 +73,7 @@ export const InputField = ({
             </div>
 
             {error && (
-                <span className='text-red-600 mt-2 font-medium'>{error.message}</span>
+                <span className='text-red-600 mt-2 font-medium'>{error}</span>
             )}
 
         </div>
