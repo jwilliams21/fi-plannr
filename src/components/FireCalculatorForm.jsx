@@ -20,7 +20,7 @@ export default function FireCalculatorForm({ onCalculated }) {
     }
 
     return (
-        <form className='flex flex-col items-center w-full' onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
+        <form className='flex flex-col items-center w-full mx-auto md:w-7/8' onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
             <FireInputs 
                 register={register} 
                 errors={errors} 

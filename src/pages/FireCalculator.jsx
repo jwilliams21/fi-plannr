@@ -16,7 +16,7 @@ export default function FireCalculator() {
     };
 
     return (
-        <div className='flex flex-col gap-12 mb-12 md:px-24 lg:px-56'>
+        <div className='flex flex-col gap-12 mb-12'>
             <FireCalculatorForm onCalculated={handleCalculated} />
             <FireDashboard results={fireResults} />
         </div>
