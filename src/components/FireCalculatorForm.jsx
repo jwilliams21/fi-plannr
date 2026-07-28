@@ -10,12 +10,14 @@ export default function FireCalculatorForm({ onCalculated }) {
 
     const { handleSubmit, register, formState: { errors } } = useForm({
         resolver: zodResolver(fireSchema),
-        defaultValues: fireSchema.parse({}),
         shouldUnregister: false,
     });
 
     const onSubmit = (data) => {
-        const results = fireMath(data);
+        const defaultData = fireSchema.parse({});
+        const mergedData = { ...defaultData, ...data }
+
+        const results = fireMath(mergedData);
         onCalculated(results);
     }
 

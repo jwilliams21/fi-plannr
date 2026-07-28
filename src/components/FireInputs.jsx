@@ -68,7 +68,8 @@ export default function FireInputs({register, errors}) {
                     labelInfoVariant='base'
                     inputVariant='base'
                     divClassName='flex flex-col'
-                    placeholder='$ 60,000'
+                    placeholder='60,000'
+                    symbolType='currency'
                     error={errors.currentAnnualExpenses?.message}
                     description='Add up everything you spend money on throughout the year (e.g., mortgage, car payments, take-out, lightsaber-dueling lessons, etc.).'
                 />
@@ -103,7 +104,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 50,000'
+                            placeholder='50,000'
+                            symbolType='currency'
                             error={errors.totalBrokerage?.message}
                             description='This is invested money outside of your retirement accounts.'
                         />
@@ -118,7 +120,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 200'
+                            placeholder='200'
+                            symbolType='currency'
                             error={errors.brokerageContribution?.message}
                             description='How much do you put in all total brokerage accounts each month?'
                         />
@@ -133,7 +136,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='8 %'
+                            placeholder='8'
+                            symbolType='percentage'
                             error={errors.brokerageReturnRate?.message}
                             description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                         />
@@ -168,7 +172,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 20,000'
+                            placeholder='20,000'
+                            symbolType='currency'
                             error={errors.totalRoth?.message}
                             description='The total value of all after-tax Roth accounts.'
                         />
@@ -183,7 +188,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 625'
+                            placeholder='625'
+                            symbolType='currency'
                             error={errors.rothContribution?.message}
                             description='How much do you put in all Roth accounts each month?'
                         />
@@ -198,7 +204,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='8 %'
+                            placeholder='8'
+                            symbolType='percentage'
                             error={errors.rothReturnRate?.message}
                             description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                         />
@@ -233,7 +240,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 50,000'
+                            placeholder='50,000'
+                            symbolType='currency'
                             error={errors.totalTraditional?.message}
                             description='This is total traditional dollars (including Safe Harbor contributions) in all retirement accounts.'
                         />
@@ -248,7 +256,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 500'
+                            placeholder='500'
+                            symbolType='currency'
                             error={errors.traditionalContribution?.message}
                             description='How much do you put in all traditional accounts each month?'
                         />
@@ -263,7 +272,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 300'
+                            placeholder='300'
+                            symbolType='currency'
                             error={errors.traditionalEmployerContribution?.message}
                             description='How much does your employer contribute to all traditional accounts each month?'
                         />
@@ -278,7 +288,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='8 %'
+                            placeholder='8'
+                            symbolType='percentage'
                             error={errors.traditionalReturnRate?.message}
                             description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                         />
@@ -313,7 +324,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 5,000'
+                            placeholder='5,000'
+                            symbolType='currency'
                             error={errors.totalHsa?.message}
                             description='How much do you put in all HSA accounts each month?'
                         />
@@ -329,7 +341,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='$ 200'
+                            placeholder='200'
+                            symbolType='currency'
                             error={errors.hsaContributions?.message}
                             description='How much do you put in all HSA accounts each month?'
                         />
@@ -344,7 +357,8 @@ export default function FireInputs({register, errors}) {
                             labelInfoVariant='base'
                             inputVariant='base'
                             divClassName='flex flex-col'
-                            placeholder='8 %'
+                            placeholder='8'
+                            symbolType='percentage'
                             error={errors.hsaReturnRate?.message}
                             description='What return rate are you expecting?  If you are not sure, try 8% to start.'
                         />
