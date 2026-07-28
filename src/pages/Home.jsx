@@ -5,12 +5,12 @@ export default function Home() {
     <div className='text-slate-950 flex flex-col gap-10 pb-8 px-4 h-[calc(100dvh-137px)]'>
 
       <div className='space-y-4 pt-6'>
-        <div className='w-full md:text-center md:flex md:flex-col md:w-5/8 md:mx-auto'>
+        <div className='w-full md:text-center md:flex md:flex-col md:w-5/8 md:mx-auto xl:w-1/2'>
           <h1 className='text-xl font-semibold pb-2'>Welcome to Fi-PlannR</h1>
           <p className='md:text-lg'>Your centralized workspace for tracking compound growth and mapping your path to early retirement.</p>
         </div>
 
-        <div className='w-full md:text-center md:w-5/8 md:mx-auto lg:mt-8'>
+        <div className='w-full md:text-center md:w-5/8 md:mx-auto lg:mt-8 xl:w-1/2'>
           <p className='font-semibold pb-2 md:text-xl'>Disclaimer</p>
           <p className='md:text-lg'>
             This tool is built entirely for educational and entertainment purposes. We love compounding interest, but we aren't certified financial planners or fiduciary advisors. 
