@@ -1,24 +1,25 @@
 import { z } from 'zod';
 
+const numericDefault = (fallback, minVal = 0, minMessage, maxVal, maxMessage) => {
+    return z.preprocess(
+        (val) => {
+            if (val === '' || val === null || val === undefined) return undefined;
+            const parsed = Number(val);
+            return Number.isNaN(parsed) ? undefined : parsed;
+        },
+        z
+         .number({invalid_type_error: 'Must be a number'})
+         .min(minVal, minMessage || `Must be at least ${minMessage}`)
+         .max(maxVal, maxMessage || `Must be no more than ${maxMessage}`)
+         .default(fallback)
+    )
+}
+
 export const basicSchema = z.object({
-    startingAmt: z.coerce.number({ invalid_type_error: 'Must be a number.' })
-        .min(1, 'Starting amount must be greater than zero.')
-        .step(0.01, 'Only two places past the decimal is allowed.')
-        .default(10000), 
-    duration: z.coerce.number({ invalid_type_error: 'Must be a number.' })
-        .min(1, 'Duration must be at least one year.')
-        .max(100, 'Duration must be less than 100.')
-        .step(1, 'Only whole years allowed.')
-        .default(30), 
-    returnRate: z.coerce.number({ invalid_type_error: 'Must be a number.' })
-        .min(1, 'Interest rates cannot be negative')
-        .max(100, 'Interest rates cannot be greater than 100.')
-        .step(0.01, 'Only two places past the decimal is allowed.')
-        .default(8), 
-    addContribute: z.coerce.number({ invalid_type_error: 'Must be a number.' })
-        .min(0, 'Additional contributions cannot be less than zero.')
-        .step(0.01, 'Only two places past the decimal is allowed.')
-        .default(0)
+    startingAmt: numericDefault(10000, 0, 'Amount must be a positive value', 1000000000, "Really...?  C'mon"), 
+    duration: numericDefault(1, 1, 'Duration must be at least one year', 100, "You're not even alive anymore!"), 
+    returnRate: numericDefault(0, 0, 'Return rate must be a positive value', 100, "Really?  C'mon"), 
+    addContribute: numericDefault(0, 0, 'Contribution must be a positive value', 1000000000, "Really...?  C'mon")
 })
 
 // input validation lives here - this will look through the inputs to determine if bad data is collected before the data ever reaches the basic math.

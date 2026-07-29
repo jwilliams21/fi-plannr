@@ -14,15 +14,17 @@ export default function BasicCalculatorForm({ onCalculated }) {
 
     const { handleSubmit, register, formState: { errors } } = useForm({
         resolver: zodResolver(basicSchema),
-        defaultValues: basicSchema.parse({}),
         shouldUnregister: false,
     });
 
     const onSubmit = (data) => {
-        data.contributionTiming = contributionTiming;
-        data.contributionFrequency = contributionFrequency;
+        const completedData = {
+            ...data,
+            contributionTiming,
+            contributionFrequency
+        }
 
-        const results = basicMath(data);
+        const results = basicMath(completedData);
         onCalculated(results);
     }
 
