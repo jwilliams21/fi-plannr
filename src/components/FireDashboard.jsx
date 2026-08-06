@@ -111,7 +111,7 @@ export default function FireDashboard({ results }) {
         <div>
             <div className='w-full px-2 md:w-3/4 md:mx-auto lg:text-xl'>
                 <div>
-                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>
+                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1 rounded-lg'>
                         FIRE Results at {fireAge}
                     </div>
                     <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols-[100px_1.8fr_2fr] place-items-center gap-2 pt-2 pb-4 pl-2'>
@@ -137,7 +137,7 @@ export default function FireDashboard({ results }) {
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Are you ready to be FI at age {fireAge}?</div>
+                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1 rounded-lg'>Are you ready to be FI at age {fireAge}?</div>
                     <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols-[100px_1.8fr_2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
                         <div className='lg:pl-10'>
                             <LabelInfo 
@@ -182,7 +182,7 @@ export default function FireDashboard({ results }) {
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Retirement accounts at age 60</div>
+                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1 rounded-lg'>Retirement accounts at age 60</div>
                     <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols-[100px_1.8fr_2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
                         <div className='lg:pl-10'>
                             <LabelInfo 
@@ -226,7 +226,7 @@ export default function FireDashboard({ results }) {
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Brokerage Results at {fireAge}</div>
+                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1 rounded-lg'>Brokerage Results at {fireAge}</div>
                     <div className='grid grid-cols-[2fr_1fr] lg:grid-cols-[2fr_2fr] gap-2 pl-2 pt-2 pb-4'>
                         <div className='font-bold text-left my-auto lg:pl-10'>Brokerage Balance</div>
                         <div className='lg:w-1/4 lg:px-0 mx-auto font-bold text-center px-2 text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalBrokerageEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
@@ -238,7 +238,7 @@ export default function FireDashboard({ results }) {
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Roth Results at {fireAge}</div>
+                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1 rounded-lg'>Roth Results at {fireAge}</div>
                     <div className='grid grid-cols-[2fr_1fr] lg:grid-cols-[2fr_2fr] gap-2 pl-2 pt-2 pb-4'>
                         <div className='font-bold text-left my-auto lg:pl-10'>Roth Balance</div>
                         <div className='lg:w-1/4 lg:px-0 mx-auto font-bold text-center px-2 text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalRothEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
@@ -250,7 +250,7 @@ export default function FireDashboard({ results }) {
                 </div>
 
                 <div>
-                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Traditional Results at {fireAge}</div>
+                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1 rounded-lg'>Traditional Results at {fireAge}</div>
                     <div className='grid grid-cols-[2fr_1fr] lg:grid-cols-[2fr_2fr] gap-2 pl-2 pt-2 pb-4'>
                         <div className='font-bold text-left my-auto lg:pl-10'>Traditional Balance</div>
                         <div className='lg:w-1/4 lg:px-0 mx-auto font-bold text-center px-2 text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalTraditionalEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
@@ -263,7 +263,7 @@ export default function FireDashboard({ results }) {
                     </div>
                 </div>
                 <div>
-                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>HSA Results at {fireAge}</div>
+                    <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1 rounded-lg'>HSA Results at {fireAge}</div>
                     <div className='grid grid-cols-[2fr_1fr] lg:grid-cols-[2fr_2fr]  gap-2 pl-2 pt-2 pb-4'>
                         <div className='font-bold text-left my-auto lg:pl-10'>HSA Balance</div>
                         <div className='lg:w-1/4 mx-auto font-bold text-center px-2 text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalHsaEndingBalance?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>

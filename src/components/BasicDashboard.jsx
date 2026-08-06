@@ -48,7 +48,7 @@ export default function BasicDashboard({ results }) {
     <div className='w-full px-2'>
 
       <div className='lg:text-xl'>
-        <div className='w-full bg-emerald-600 text-white text-lg p-1 text-center font-bold mb-2 md:p-2 lg:text-2xl'>Results</div>
+        <div className='w-full bg-emerald-600 text-white text-lg p-1 text-center font-bold mb-2 md:p-2 lg:text-2xl rounded-lg'>Results</div>
         <div className='grid grid-cols-2 gap-2 md:px-12 md:text-center md:place-items-center'>
           <div className='py-1 font-bold lg:text-xl'>End Balance</div>
           <div className='text-center text-md font-bold  text-white bg-sky-700 rounded-sm py-1 md:px-16 whitespace-nowrap'>$ {totalEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
@@ -64,7 +64,7 @@ export default function BasicDashboard({ results }) {
 
       {/* Doughnut Chart */}
       <div className='my-2'>
-        <h2 className='text-white text-lg bg-emerald-600 font-bold text-center py-1 md:p-2 lg:text-2xl'>Growth Projections</h2>
+        <h2 className='text-white text-lg bg-emerald-600 font-bold text-center py-1 md:p-2 lg:text-2xl rounded-lg'>Growth Projections</h2>
         <FiPieChart 
           results={results}
         />
@@ -73,7 +73,7 @@ export default function BasicDashboard({ results }) {
       <div className='w-full overflow-x-auto'>
         <div 
         className='flex items-center justify-center gap-2 p-1 text-lg bg-emerald-600 text-white font-bold cursor-pointer border-2 border-emerald-600 
-        md:p-2 lg:text-2xl hover:bg-white hover:text-emerald-600'
+        md:p-2 lg:text-2xl hover:bg-white hover:text-emerald-600 rounded-lg'
         onClick={() => handleToggle()}
         >
           <span>Accumulation Schedule</span>
