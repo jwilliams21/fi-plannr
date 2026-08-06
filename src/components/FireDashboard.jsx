@@ -114,7 +114,7 @@ export default function FireDashboard({ results }) {
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>
                         FIRE Results at {fireAge}
                     </div>
-                    <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols[100px_1.8fr_2fr] place-items-center gap-2 pt-2 pb-4 pl-2'>
+                    <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols-[100px_1.8fr_2fr] place-items-center gap-2 pt-2 pb-4 pl-2'>
                         <div className='lg:pl-10'>
                             <LabelInfo 
                             label='FIRE Balance'
@@ -123,7 +123,7 @@ export default function FireDashboard({ results }) {
                             />
                         </div>
                         <div className='w-full text-left font-bold pl-1 lg:pl-10'>FIRE Balance</div>
-                        <div className='font-bold text-white bg-sky-700 rounded-sm py-1 px-2 md:px-4 lg:w-1/4 text-center whitespace-nowrap'>$ {totalBrokerageEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                        <div className='lg:w-1/4 lg:px-0 mx-auto font-bold text-center px-2 text-white bg-sky-700 rounded-sm py-1 whitespace-nowrap'>$ {totalBrokerageEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         <div className='lg:pl-10'>
                             <LabelInfo 
                             label='After-FIRE Funds'
@@ -138,7 +138,7 @@ export default function FireDashboard({ results }) {
 
                 <div>
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Are you ready to be FI at age {fireAge}?</div>
-                    <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols[100px_1.8fr_2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
+                    <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols-[100px_1.8fr_2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
                         <div className='lg:pl-10'>
                             <LabelInfo 
                             label='Current Annual Expenses'
@@ -183,7 +183,7 @@ export default function FireDashboard({ results }) {
 
                 <div>
                     <div className='w-full text-lg bg-emerald-600 text-white text-center font-bold py-1'>Retirement accounts at age 60</div>
-                    <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols[100px_1.8fr_2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
+                    <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols-[100px_1.8fr_2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
                         <div className='lg:pl-10'>
                             <LabelInfo 
                             label='Balance'

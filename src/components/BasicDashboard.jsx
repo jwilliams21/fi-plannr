@@ -3,7 +3,7 @@ import { FiPieChart } from './FiPieChart';
 import { ArrowUpCircle, ArrowDownCircle } from 'lucide-react';
 
 export default function BasicDashboard({ results }) {
-  const [scheduleOpen, setScheduleOpen] = useState(false)
+  const [scheduleOpen, setScheduleOpen] = useState(true)
 
   const tableRef = useRef(null);
 
@@ -24,7 +24,7 @@ export default function BasicDashboard({ results }) {
     return accumulator + (parseFloat(currentYear.yearAddContribute) || 0);
   }, 0)
 
-  const scheduleGridLayout = 'grid grid-cols-[40px_1fr_1fr_1fr] gap-4 items-center'
+  const scheduleGridLayout = 'grid grid-cols-[15px_1fr_1fr_1fr] gap-4 items-center'
 
   function toggleSchedule() {
     setScheduleOpen(!scheduleOpen);
@@ -86,7 +86,7 @@ export default function BasicDashboard({ results }) {
               <div className='text-center'>Year</div>
               <div className='text-center'>Deposit</div>
               <div className='text-center'>Interest</div>
-              <div className='text-center'>Balance</div>
+              <div className='text-center'>Ending Balance</div>
             </div>
             {/* Table Body */}
             <div className='divide-y divide-slate-100 border-x border-b border-slate-200 rounded-b-lg'>
@@ -94,9 +94,9 @@ export default function BasicDashboard({ results }) {
               return (
                 <div key={row.year} className={`${scheduleGridLayout} py-3 px-4`}>
                   <div className='text-center font-bold'>{row.year}</div>
-                  <div className='text-center'>${row.yearAddContribute.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                  <div className='text-center text-emerald-600'>${row.yearInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                  <div className='text-center'>${row.yearEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                  <div className='text-center whitespace-nowrap'>$ {row.yearAddContribute.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                  <div className='text-center text-emerald-600 whitespace-nowrap'>$ {row.yearInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                  <div className='text-center whitespace-nowrap'>$ {row.yearEndingBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                 </div>
               )})}
             </div>
