@@ -7,7 +7,7 @@ export default function Home() {
       <div className='space-y-4 pt-6'>
         <div className='w-full md:text-center md:flex md:flex-col md:w-5/8 md:mx-auto xl:w-1/2'>
           <h1 className='text-xl font-semibold pb-2'>Welcome to Fi-Plann<span className='text-emerald-700'>R</span></h1>
-          <p className='md:text-lg'>Your interactive space for tracking compound growth, running FIRE scenarios, and seeing how fast your money can work for you.</p>
+          <p className='md:text-lg'>An interactive space for tracking compound growth, running FIRE scenarios, and seeing how fast your money can work for you.</p>
         </div>
 
         <div className='w-full md:text-center md:w-5/8 md:mx-auto lg:mt-8 xl:w-1/2'>
