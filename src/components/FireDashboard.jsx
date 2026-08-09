@@ -84,9 +84,9 @@ export default function FireDashboard({ results }) {
     const expenseDiff = brokerageWithdrawlAmount - totalFutureExpenses;
 
     const brokerageWithdrawlRateContent = (
-        <ul>
-            <li>If less than 10 years until age 60, then 7% of the portfolio</li>
-            <li>If less than 10 years, but greater than 5 years until age 60, then 9% of the portfolio</li>
+        <ul className="list-disc pl-5 space-y-1 mt-2">
+            <li>If greater than 10 years, then 7% of the portfolio</li>
+            <li>If less than 10 years, but greater than 5 years, then 9% of the portfolio</li>
             <li>If less than 5 years, then 12% of the portfolio</li>
         </ul>
     );
@@ -126,17 +126,24 @@ export default function FireDashboard({ results }) {
                         <div className='grid grid-cols-[25px_2fr_1.2fr] lg:grid-cols-[100px_1.8fr_2fr] gap-2 place-items-center pt-2 pb-4 pl-2'>
                             <div className='lg:pl-10'>
                                 <LabelInfo 
-                                    label='Future Expenses'
-                                    description='These are your projected annual expenses at your FIRE age using a 3% inflation rate per year'
+                                    label='Overage or Deficient'
+                                    description='Are you able to sustain your lifestyle and cover your expenses?'
                                     variant='result'
                                 />
                             </div>
-                            <div className='w-full text-left pl-1 lg:pl-10'>Future Expenses at {fireAge}</div>
-                            <div>$ {totalFutureExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                            <div className='w-full text-left pl-1 lg:pl-10'>Annual {expenseDiff >= 0 ? 'Overage' : 'Deficient'}</div>
+                            <div className={`lg:w-1/2 lg:px-0 mx-auto font-bold text-center px-2 text-white rounded-sm py-1 whitespace-nowrap ${expenseDiff >= 0 ? 'bg-emerald-600' : 'bg-rose-600'}`}>
+                                $ {expenseDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                            </div>
                             <div className='lg:pl-10'>
                                 <LabelInfo 
                                     label='Annual Withdrawl'
-                                    description={`This is how much your able to take from your brokerage account based on the number of years left until age 60. \n ${brokerageWithdrawlRateContent}`}
+                                    description={
+                                        <>
+                                            <p>This is how much your able to take from your brokerage account based on the number of years left until age 60.</p>
+                                            {brokerageWithdrawlRateContent}
+                                        </>
+                                    }
                                     variant='result'
                                 />
                             </div>
@@ -144,15 +151,13 @@ export default function FireDashboard({ results }) {
                             <div>$ {brokerageWithdrawlAmount?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                             <div className='lg:pl-10'>
                                 <LabelInfo 
-                                    label='Overage or Deficient'
-                                    description='Are you able to sustain your lifestyle and cover your expenses?'
+                                    label='Future Expenses'
+                                    description='These are your projected annual expenses at your FIRE age using a 3% inflation rate per year'
                                     variant='result'
                                 />
                             </div>
-                            <div className='w-full text-left pl-1 lg:pl-10'>Annual {expenseDiff >= 0 ? 'overage' : 'deficient'}</div>
-                            <div className={`lg:w-1/2 lg:px-0 mx-auto font-bold text-center px-2 text-white rounded-sm py-1 whitespace-nowrap ${expenseDiff >= 0 ? 'bg-emerald-600' : 'bg-rose-600'}`}>
-                                $ {expenseDiff?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                            </div>
+                            <div className='w-full text-left pl-1 lg:pl-10'>Future Expenses at {fireAge}</div>
+                            <div>$ {totalFutureExpenses?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                         </div>
                     </div>
                 </div>

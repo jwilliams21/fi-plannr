@@ -24,7 +24,7 @@ export const fireMath = ({
     const numAge = Number(currentAge) || 0;
     const numFireAge = Number(fireAge) || 0;
     const numFireToRetire = Number(60 - numFireAge) || 0;
-    const numCurrentAnnualExpenses = Number(currentAnnualExpenses) || 1;
+    const numCurrentAnnualExpenses = Number(currentAnnualExpenses) || 0;
 
     const monthlyBrokerageContrib = Number(brokerageContribution) || 0;
     const monthlyRothContrib = Number(rothContribution) || 0;
