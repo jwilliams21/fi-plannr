@@ -45,7 +45,7 @@ export default function BasicCalculatorForm({ onCalculated }) {
             <Button
                 variant='calc'
                 type='submit'
-            >Invest Me!</Button>
+            >Invest</Button>
         </form>
     )
 };

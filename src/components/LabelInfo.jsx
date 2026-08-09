@@ -35,15 +35,18 @@ export default function LabelInfo({ label, description, variant }) {
         <div>
             <p className={`${variants[variant]} text-white px-2 rounded-lg`} onClick={() => setIsOpen(!isOpen)}>?</p>
             {isOpen && 
-                <div className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-opacity' onClick={closeModal}>
-                    <div className={`relative overflow-y-auto text-white ${variants[variant]} border border-slate-200 rounded-2xl shadow-2xl p-6 font-semibold`}>
+                <div 
+                    className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-opacity' 
+                    onClick={closeModal}
+                >
+                    <div className={`relative overflow-y-auto text-white ${variants[variant]} border border-slate-200 rounded-2xl shadow-2xl p-6 font-semibold xl:w-3/8`}>
                         <button
                             type='button'
                             onClick={closeModal}
-                            className='absolute top-0 right-0 w-8 h-8 flex items-center justify-center rounded-full text-white text-md'
+                            className='absolute top-1 right-2 w-8 h-8 flex items-center justify-center rounded-full text-white text-md cursor-pointer'
                         >X</button>
                         <h3 className='text-xl font-bold pb-2'>{label}</h3>
-                        <div>{description}</div>
+                        <div className='xl:text-lg'>{description}</div>
                     </div>
                 </div>
             }
